@@ -6,12 +6,16 @@ import TaskList from '../components/TaskList'
 
 const userList = users.users
 
-const MainTasksScreen = () => {
+const MainTasksScreen = ({ navigation }) => {
+  const view = (task) => {
+    navigation.navigate('TaskDetailScreen', task)
+  }
+
   return (
     <View>
       <Text>MainTasksScreen</Text>
       {userList.map((user) => (
-        <TaskList tasks={user.tasks}/>
+        <TaskList tasks={user.tasks} view={view} />
       ))}
     </View>
   )
