@@ -8,7 +8,7 @@ const userList = users.users
 
 const MainTasksScreen = ({ navigation }) => {
   const view = (task) => {
-    navigation.navigate('TaskDetailScreen', task)
+    navigation.navigate('TaskDetailScreen', {task: task})
   }
 
   return (
