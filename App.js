@@ -11,7 +11,20 @@ const Stack = createStackNavigator()
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator
+        screenOptions={{
+          headerStyle: {
+            backgroundColor: '#610f94', // some purple color lol
+          },
+          headerTintColor: 'white',
+          headerTitleStyle: {
+            alignSelf: 'center',
+            fontWeight: 'bold',
+          },
+          headerTitleContainerStyle: {
+            left: 0,
+          }
+        }}>
         <Stack.Screen
           name="MainTasksScreen"
           component={MainTasksScreen}
@@ -20,7 +33,7 @@ export default function App() {
         <Stack.Screen
           name="TaskDetailScreen"
           component={TaskDetailScreen}
-          options={{ title: 'Task Detail' }}
+          options={{ title: 'Task Details' }}
         />
       </Stack.Navigator>
     </NavigationContainer>

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text, View } from 'react-native'
+import { Text, View, StyleSheet } from 'react-native'
 import { users } from '../utils/data'
 import Task from '../components/Task'
 import TaskList from '../components/TaskList'
@@ -12,13 +12,26 @@ const MainTasksScreen = ({ navigation }) => {
   }
 
   return (
-    <View>
-      <Text>MainTasksScreen</Text>
+    <View style={styles.container}>
+      {/* <Text style={styles.title}>Current Tasks</Text> */}
       {userList.map((user) => (
         <TaskList tasks={user.tasks} view={view} />
       ))}
     </View>
   )
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 10,
+  },
+  title: {
+    fontSize: 22,
+    fontWeight: 'bold',
+  },
+})
 
 export default MainTasksScreen

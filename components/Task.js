@@ -8,12 +8,10 @@ const Task = ({ task, view }) => (
     <View style={styles.container}>
       <Text style={styles.title}>{task.title}</Text>
       <Text style={styles.dateDue}>Due: {task.dateDue}</Text>
-      <Text style={styles.status}>Status: {task.status}</Text>
+      <Text style={styles.incompleteStatus}>Status: {task.status}</Text>
     </View>
   </TouchableOpacity>
 )
-
-export default Task
 
 const styles = StyleSheet.create({
   container: {
@@ -21,28 +19,33 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'flex-start',
     justifyContent: 'center',
-    marginBottom: 20,
-    marginTop: 10,
+    marginTop: 20,
+    paddingTop: 5,
+    paddingBottom: 5,
+    paddingLeft: 10,
+    paddingRight: 75,
+    borderWidth: 1,
+    borderColor: 'black',
+    borderRadius: 5,
   },
   title: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'flex-start',
-    justifyContent: 'center',
     fontSize: 16,
+    fontWeight: 500,
   },
   dateDue: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'flex-start',
-    justifyContent: 'center',
     fontSize: 16,
+    fontStyle: 'italic',
   },
-  status: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'flex-start',
-    justifyContent: 'center',
+  incompleteStatus: {
     fontSize: 16,
+    color: 'red',
   },
+  completeStatus: {
+    fontSize: 16,
+    color: 'green',
+  }
 })
+
+export default Task
+
+
