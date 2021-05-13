@@ -27,14 +27,14 @@ export default function App() {
         }}
       >
         <Stack.Screen
-          name="CreateTaskScreen"
-          component={CreateTaskScreen}
-          options={{ title: 'Create New Task' }}
-        />
-        <Stack.Screen
           name="MainTasksScreen"
           component={MainTasksScreen}
           options={{ title: 'Main Tasks' }}
+        />
+        <Stack.Screen
+          name="CreateTaskScreen"
+          component={CreateTaskScreen}
+          options={{ title: 'Create New Task' }}
         />
         <Stack.Screen
           name="TaskDetailScreen"
