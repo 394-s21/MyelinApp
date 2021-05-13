@@ -4,7 +4,7 @@ import { useFormikContext } from 'formik'
 
 import Colors from './colors'
 
-export default function FormButton({ title, color = 'primary' }) {
+export default function FormButton({ title, color = 'lightPurple' }) {
   const { handleSubmit, values } = useFormikContext()
   const text = typeof title === 'function' ? title(values) : title
 
@@ -20,12 +20,14 @@ export default function FormButton({ title, color = 'primary' }) {
 
 const styles = StyleSheet.create({
   button: {
-    marginVertical: 10,
-    borderRadius: 25,
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 15,
-    width: '100%',
+    borderWidth: 1,
+    borderRadius: 5,
+    borderColor: 'black',
+    textAlign: 'center',
+    padding: 5,
+    shadowOffset:{ width: 2,  height: 2, },
+    shadowColor: 'black',
+    shadowOpacity: 1.0,
   },
   buttonText: {
     color: Colors.black,

@@ -16,10 +16,10 @@ const MainTasksScreen = ({ navigation }) => {
         onPress={() => navigation.navigate('CreateTaskScreen')}
         style={styles.newTaskButton}
       >
-        <Text style={styles.title}>Add new task</Text>
+        <Text style={styles.title}>Create new task</Text>
       </TouchableOpacity>
       {userList.map((user, idx) => (
-        <TaskList key={idx} tasks={user.tasks} view={view} />
+        <TaskList key={idx} tasks={user.tasks} view={view}/>
       ))}
     </View>
   )
@@ -40,10 +40,13 @@ const styles = StyleSheet.create({
     width: '85%',
     textAlign: 'center',
     padding: 5,
+    maxWidth: 800,
+    shadowOffset:{ width: 2,  height: 2, },
+    shadowColor: 'black',
+    shadowOpacity: 1.0,
   },
   title: {
     fontSize: 22,
-    fontWeight: 'bold',
   },
 })
 

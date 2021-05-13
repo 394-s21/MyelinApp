@@ -14,7 +14,7 @@ const CreateTaskScreen = ({ navigation }) => {
       <ScrollView>
         <Form
           initialValues={{
-            title: 'Follow up with Vascular surgery',
+            title: '',
             description: '',
             dateCreated: '',
             dateDue: '',
@@ -50,8 +50,10 @@ const CreateTaskScreen = ({ navigation }) => {
     <SafeAreaView style={styles.container}>
       <Text style={styles.h1_text}>Task successfully created!</Text>
       <TouchableOpacity
-        style={styles.roleButton}
-        onPress={() => navigation.navigate('MainTasksScreen')}
+        style={styles.addTaskButton}
+        onPress={() => {
+          navigation.navigate('MainTasksScreen')
+        }}
       >
         <Text style={styles.buttonText}>Return to Home Screen</Text>
       </TouchableOpacity>
@@ -60,6 +62,17 @@ const CreateTaskScreen = ({ navigation }) => {
 }
 
 const styles = StyleSheet.create({
+  addTaskButton: {
+    borderWidth: 1,
+    borderRadius: 5,
+    borderColor: 'black',
+    backgroundColor: '#c3a6ff',
+    textAlign: 'center',
+    padding: 5,
+    shadowOffset:{ width: 2,  height: 2, },
+    shadowColor: 'black',
+    shadowOpacity: 1.0,
+  },
   container: {
     flex: 1,
     marginTop: 10,
@@ -123,7 +136,7 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     fontSize: 20,
-    color: 'ghostwhite',
+    color: 'black',
     textAlign: 'center',
   },
   developerImage: {
