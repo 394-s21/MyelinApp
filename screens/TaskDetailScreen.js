@@ -41,6 +41,7 @@ const styles = StyleSheet.create({
   },
   description: {
     fontSize: 16,
+    marginBottom: 10,
   },
   date: {
     fontSize: 14,

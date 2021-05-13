@@ -5,11 +5,26 @@ import Form from '../components/Form'
 
 const CreateTaskScreen = ({ navigation }) => {
   const [submitted, setSubmitted] = useState(false)
+  const [newTask, setNewTask] = useState({}) // Keep track of new task
+
+  // Update the 'newTask' variable based on user input
+  const handleSubmit = (values) => {
+    setNewTask({
+      title: values.title,
+      description: values.description,
+      dateCreated: '05/13/2021', // Hardcoded date lol
+      dateDue: values.dateDue,
+      status: 'Incomplete',
+      owner: 'Dr. Jane Doe',
+      comments: '',
+      notifications: '',
+    })
+  }
 
   return !submitted ? (
     <SafeAreaView style={styles.container}>
       <Text label="Name" style={styles.name}>
-        Post a new Job!
+        Post a new task!
       </Text>
       <ScrollView>
         <Form
@@ -23,8 +38,9 @@ const CreateTaskScreen = ({ navigation }) => {
             comments: '',
             notifications: '',
           }}
-          onSubmit={() => {
-            setSubmitted(true)
+          onSubmit={(values) => {
+            setSubmitted(true);
+            handleSubmit(values);
           }}
         >
           <Form.Field
@@ -51,9 +67,7 @@ const CreateTaskScreen = ({ navigation }) => {
       <Text style={styles.h1_text}>Task successfully created!</Text>
       <TouchableOpacity
         style={styles.addTaskButton}
-        onPress={() => {
-          navigation.navigate('MainTasksScreen')
-        }}
+        onPress={() => navigation.navigate('MainTasksScreen', {newTask})} // Pass new task to 'MainTasksScreen.js'
       >
         <Text style={styles.buttonText}>Return to Home Screen</Text>
       </TouchableOpacity>

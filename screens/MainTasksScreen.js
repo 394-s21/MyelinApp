@@ -2,12 +2,19 @@ import React from 'react'
 import { Text, View, StyleSheet, TouchableOpacity, Button } from 'react-native'
 import { users } from '../utils/data'
 import TaskList from '../components/TaskList'
+import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
-const userList = users.users
 
-const MainTasksScreen = ({ navigation }) => {
+const MainTasksScreen = ({ navigation, route }) => {
   const view = (task) => {
-    navigation.navigate('TaskDetailScreen', { task: task })
+    navigation.navigate('TaskDetailScreen', {task})
+  }
+
+  // If we come from 'CreateTaskScreen' (i.e. we've added a new task), add & display the new task
+  // Else, just use the hardcoded list in 'data.js'
+  let userList = [...users.users]
+  if (route && route.params != undefined && JSON.stringify(route.params.newTask) !== '{}') {
+    userList[0].tasks.push(route.params.newTask);
   }
 
   return (
@@ -41,7 +48,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     padding: 5,
     maxWidth: 800,
-    shadowOffset:{ width: 2,  height: 2, },
+    shadowOffset:{width: 2,  height: 2},
     shadowColor: 'black',
     shadowOpacity: 1.0,
   },
