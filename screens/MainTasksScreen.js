@@ -1,21 +1,20 @@
 import React from 'react'
 import { Text, View, StyleSheet } from 'react-native'
 import { users } from '../utils/data'
-import Task from '../components/Task'
 import TaskList from '../components/TaskList'
 
 const userList = users.users
 
 const MainTasksScreen = ({ navigation }) => {
   const view = (task) => {
-    navigation.navigate('TaskDetailScreen', {task: task})
+    navigation.navigate('TaskDetailScreen', { task: task })
   }
 
   return (
     <View style={styles.container}>
       {/* <Text style={styles.title}>Current Tasks</Text> */}
-      {userList.map((user) => (
-        <TaskList tasks={user.tasks} view={view} />
+      {userList.map((user, idx) => (
+        <TaskList key={idx} tasks={user.tasks} view={view} />
       ))}
     </View>
   )

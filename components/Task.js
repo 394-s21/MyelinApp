@@ -43,9 +43,7 @@ const styles = StyleSheet.create({
   completeStatus: {
     fontSize: 16,
     color: 'green',
-  }
+  },
 })
 
 export default Task
-
-

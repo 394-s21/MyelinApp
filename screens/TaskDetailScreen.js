@@ -1,10 +1,5 @@
 import React from 'react'
 import { Text, View, StyleSheet } from 'react-native'
-import { users } from '../utils/data'
-import Task from '../components/Task'
-import TaskList from '../components/TaskList'
-
-const userList = users.users
 
 const TaskDetailScreen = ({ navigation, route }) => {
   const task = route.params.task
@@ -13,7 +8,9 @@ const TaskDetailScreen = ({ navigation, route }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>{task.title}</Text>
-      <Text style={styles.date}>Created: {task.dateCreated} | Due: {task.dateDue}</Text>
+      <Text style={styles.date}>
+        Created: {task.dateCreated} | Due: {task.dateDue}
+      </Text>
       <Text style={styles.owner}>- {task.owner} -</Text>
       <Text style={styles.description}>{task.description}</Text>
       <View style={styles.statusContainer}>
