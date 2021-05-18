@@ -10,13 +10,8 @@ const MainTasksScreen = ({ navigation, route }) => {
     navigation.navigate('TaskDetailScreen', {task})
   }
 
-  // If we come from 'CreateTaskScreen' (i.e. we've added a new task), add & display the new task
-  // Else, just use the hardcoded list in 'data.js'
-  let userList = [...users.users]
-  if (route && route.params != undefined && JSON.stringify(route.params.newTask) !== '{}') {
-    userList[0].tasks.push(route.params.newTask);
-  }
-
+  const thisUser = route.params.user
+  
   return (
     <View style={styles.container}>
       <TouchableOpacity
@@ -25,9 +20,7 @@ const MainTasksScreen = ({ navigation, route }) => {
       >
         <Text style={styles.title}>Create new task</Text>
       </TouchableOpacity>
-      {userList.map((user, idx) => (
-        <TaskList key={idx} tasks={user.tasks} view={view}/>
-      ))}
+      <TaskList tasks={thisUser.tasks} view={view}/>
     </View>
   )
 }

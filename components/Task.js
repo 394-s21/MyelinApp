@@ -3,7 +3,8 @@ import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 
 // TODO (L11): conditional styling?
 
-const Task = ({ task, view }) => (
+const Task = ({ task, view }) => {
+  return (
   <TouchableOpacity onPress={() => view(task)}>
     <View style={styles.container}>
       <Text style={styles.title}>{task.title}</Text>
@@ -11,7 +12,8 @@ const Task = ({ task, view }) => (
       <Text style={styles.incompleteStatus}>Status: {task.status}</Text>
     </View>
   </TouchableOpacity>
-)
+  )
+}
 
 const row = {
   fontSize: 16,

@@ -3,12 +3,10 @@ import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 
 // TODO (L11): conditional styling?
 
-const UserProfile = ({ task, view }) => (
-  <TouchableOpacity onPress={() => view(task)}>
+const UserProfile = ({ user, view }) => (
+  <TouchableOpacity onPress={() => view(user)}>
     <View style={styles.container}>
-      <Text style={styles.title}>{task.title}</Text>
-      <Text style={styles.dateDue}>Due: {task.dateDue}</Text>
-      <Text style={styles.incompleteStatus}>Status: {task.status}</Text>
+      <Text style={styles.title}>{user.patientInfo.name}</Text>
     </View>
   </TouchableOpacity>
 )
