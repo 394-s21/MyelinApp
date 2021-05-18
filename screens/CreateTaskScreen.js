@@ -119,13 +119,6 @@ const styles = StyleSheet.create({
     marginLeft: 'auto',
     marginRight: 'auto',
   },
-  developerImage: {
-    width: 200,
-    height: 300,
-    marginLeft: 'auto',
-    marginRight: 'auto',
-    marginBottom: 10,
-  },
   connectButton: {
     margin: 30,
     padding: 10,
@@ -152,14 +145,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     color: 'black',
     textAlign: 'center',
-  },
-  developerImage: {
-    width: 200,
-    height: 200,
-    marginLeft: 'auto',
-    marginRight: 'auto',
-    marginBottom: 10,
-  },
+  }
 })
 
 export default CreateTaskScreen
