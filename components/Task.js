@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
   },
   title: {
     ...row,
-    fontWeight: 500,
+    fontWeight: "500",
   },
   dateDue: {
     ...row,
