@@ -7,9 +7,14 @@ const Task = ({ task, view }) => {
   return (
   <TouchableOpacity onPress={() => view(task)}>
     <View style={styles.container}>
-      <Text style={styles.title}>{task.title}</Text>
-      <Text style={styles.dateDue}>Due: {task.dateDue}</Text>
-      <Text style={styles.incompleteStatus}>Status: {task.status}</Text>
+      <View style={styles.textView}>
+        <Text style={styles.title}>{task.title}</Text>
+        <Text style={styles.dateDue}>Due: {task.dateDue}</Text>
+        <Text style={styles.incompleteStatus}>Status: {task.status}</Text>
+      </View>
+      <View style={styles.urgencyView}>
+        <Text style={styles.urgencyStatus}>{task.urgency === 1 ? "❗️": ""} </Text>
+      </View>
     </View>
   </TouchableOpacity>
   )
@@ -24,8 +29,9 @@ const row = {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    flexDirection: "row",
     backgroundColor: '#fff',
-    alignitems: 'flex-start',
+    alignItems: 'flex-start',
     justifyContent: 'center',
     marginTop: 20,
     paddingTop: 5,
@@ -52,6 +58,27 @@ const styles = StyleSheet.create({
   completeStatus: {
     ...row,
     color: 'green',
+  },
+  urgencyStatus: {
+    ...row,
+    color: 'red',
+    fontSize: 32,
+  },
+  urgencyView: {
+    flexGrow: 1,
+    flexDirection: "column",
+    justifyContent: "center",
+    ...row,
+    width: "10%",
+    alignItems: "flex-end",
+    
+  },
+  textView: {
+    flexGrow: 1,
+    width: "65vw",
+    flexDirection: "column",
+    ...row,
+    color: 'red',
   },
 })
 
