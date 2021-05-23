@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 20,
-    fontWeight: 500,
+    fontWeight: "500",
   },
   description: {
     fontSize: 16,
