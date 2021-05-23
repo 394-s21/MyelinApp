@@ -28,16 +28,13 @@ const row = {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    display: "flex",
     flexDirection: "row",
     backgroundColor: '#fff',
     alignItems: 'flex-start',
-    justifyContent: 'center',
     marginTop: 20,
     paddingTop: 5,
     paddingBottom: 5,
-    //paddingLeft: 10,
-    //paddingRight: 75,
     width: '100%',
     borderWidth: 1,
     borderColor: 'black',
@@ -65,19 +62,18 @@ const styles = StyleSheet.create({
     fontSize: 32,
   },
   urgencyView: {
-    flexGrow: 1,
-    flexDirection: "column",
-    justifyContent: "center",
     ...row,
-    width: "10%",
-    alignItems: "flex-end",
-    
+    flex: 1,
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'flex-end',
   },
   textView: {
-    flexGrow: 1,
-    width: "65vw",
-    flexDirection: "column",
     ...row,
+    flex: 1,
+    display: 'flex',
+    flexDirection: 'column',
+    width: '65vw',
     color: 'red',
   },
 })
