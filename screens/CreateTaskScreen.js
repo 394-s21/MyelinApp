@@ -2,23 +2,35 @@ import React, { useState } from 'react'
 import { SafeAreaView, StyleSheet, Text, TouchableOpacity } from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler'
 import Form from '../components/Form'
+import {firebase} from '../firebase'
 
-const CreateTaskScreen = ({ navigation }) => {
+const CreateTaskScreen = ({ navigation, route }) => {
   const [submitted, setSubmitted] = useState(false)
-  const [newTask, setNewTask] = useState({}) // Keep track of new task
+  //const [newTask, setNewTask] = useState({}) // Keep track of new task
+
+
+  // const CourseEditScreen = ({ navigation, route }) => {
+  //   const course = route.params.course;
+  //   const [submitError, setSubmitError] = useState('');
+
+  const userId = route.params.userId
 
   // Update the 'newTask' variable based on user input
-  const handleSubmit = (values) => {
-    setNewTask({
-      title: values.title,
-      description: values.description,
-      dateCreated: '05/13/2021', // Hardcoded date lol
-      dateDue: values.dateDue,
+    async function handleSubmit(values) {
+    const { title, description, dateDue } = values;
+    const newTask = {
+      title,
+      description,
+      dateCreated: Date(),
+      dateDue,
       status: 'Incomplete',
-      owner: 'Dr. Jane Doe',
+      owner: userId,
       comments: '',
       notifications: '',
-    })
+    }
+      firebase.database().ref('users').child(userId).child('tasks').child(Date.now()).set(newTask).catch(error => {
+        console.log(error.message);
+      });
   }
 
   return !submitted ? (
@@ -67,7 +79,7 @@ const CreateTaskScreen = ({ navigation }) => {
       <Text style={styles.h1_text}>Task successfully created!</Text>
       <TouchableOpacity
         style={styles.addTaskButton}
-        onPress={() => navigation.navigate('MainTasksScreen', {newTask})} // Pass new task to 'MainTasksScreen.js'
+        onPress={() => navigation.navigate('MainTasksScreen')} // Pass new task to 'MainTasksScreen.js'
       >
         <Text style={styles.buttonText}>Return to Home Screen</Text>
       </TouchableOpacity>

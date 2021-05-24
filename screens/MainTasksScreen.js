@@ -11,16 +11,19 @@ const MainTasksScreen = ({ navigation, route }) => {
   }
 
   const thisUser = route.params.user
-  
+  const userId = thisUser.id
+
+  const taskArray = Object.keys(thisUser.tasks).map((key) => thisUser.tasks[key])
+
   return (
     <View style={styles.container}>
       <TouchableOpacity
-        onPress={() => navigation.navigate('CreateTaskScreen')}
+        onPress={() => navigation.navigate('CreateTaskScreen', {userId})}
         style={styles.newTaskButton}
       >
         <Text style={styles.title}>Create new task</Text>
       </TouchableOpacity>
-      <TaskList tasks={thisUser.tasks} view={view}/>
+      <TaskList tasks={taskArray} view={view}/>
     </View>
   )
 }
