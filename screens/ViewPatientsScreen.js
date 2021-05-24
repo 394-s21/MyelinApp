@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Text, View, StyleSheet, TouchableOpacity, Button } from 'react-native'
 import { users } from '../utils/data'
 import TaskList from '../components/TaskList'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import UserProfile from '../components/UserProfile'
+import { firebase } from '../firebase'
 
 
 const ViewPatientsScreen = ({ navigation, route }) => {
@@ -11,9 +12,19 @@ const ViewPatientsScreen = ({ navigation, route }) => {
     navigation.navigate('MainTasksScreen', {user : user})
   }
 
-  // If we come from 'CreateTaskScreen' (i.e. we've added a new task), add & display the new task
-  // Else, just use the hardcoded list in 'data.js'
-  let userList = users.users
+  const [userList, setUserList] = useState([]);
+
+  useEffect(() => {
+    const db = firebase.database().ref()
+    const handleData = (snap) => {
+      if (snap.val()) {
+        const val = snap.val()
+        setUserList(Object.keys(val.users).map((key) => val.users[key]))
+      }
+    }
+    db.on('value', handleData, (error) => console.log(error))
+    return () => db.off('value', handleData)
+  }, [])
 
 
   return (
