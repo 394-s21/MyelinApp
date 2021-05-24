@@ -1,11 +1,11 @@
 {
   "files": {
-    "app.js": "/MyelinApp/static/js/app.0910789a.chunk.js",
-    "app.js.map": "/MyelinApp/static/js/app.0910789a.chunk.js.map",
+    "app.js": "/MyelinApp/static/js/app.a7864a95.chunk.js",
+    "app.js.map": "/MyelinApp/static/js/app.a7864a95.chunk.js.map",
     "runtime~app.js": "/MyelinApp/static/js/runtime~app.c9bcaa24.js",
     "runtime~app.js.map": "/MyelinApp/static/js/runtime~app.c9bcaa24.js.map",
-    "static/js/2.6351d733.chunk.js": "/MyelinApp/static/js/2.6351d733.chunk.js",
-    "static/js/2.6351d733.chunk.js.map": "/MyelinApp/static/js/2.6351d733.chunk.js.map",
+    "static/js/2.5eacdb5a.chunk.js": "/MyelinApp/static/js/2.5eacdb5a.chunk.js",
+    "static/js/2.5eacdb5a.chunk.js.map": "/MyelinApp/static/js/2.5eacdb5a.chunk.js.map",
     "fonts/AntDesign.ttf": "/MyelinApp/./fonts/AntDesign.ttf",
     "fonts/Entypo.ttf": "/MyelinApp/./fonts/Entypo.ttf",
     "fonts/Feather.ttf": "/MyelinApp/./fonts/Feather.ttf",
@@ -24,11 +24,11 @@
     "index.html": "/MyelinApp/index.html",
     "manifest.json": "/MyelinApp/manifest.json",
     "serve.json": "/MyelinApp/serve.json",
-    "static/js/2.6351d733.chunk.js.LICENSE.txt": "/MyelinApp/static/js/2.6351d733.chunk.js.LICENSE.txt"
+    "static/js/2.5eacdb5a.chunk.js.LICENSE.txt": "/MyelinApp/static/js/2.5eacdb5a.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime~app.c9bcaa24.js",
-    "static/js/2.6351d733.chunk.js",
-    "static/js/app.0910789a.chunk.js"
+    "static/js/2.5eacdb5a.chunk.js",
+    "static/js/app.a7864a95.chunk.js"
   ]
 }
