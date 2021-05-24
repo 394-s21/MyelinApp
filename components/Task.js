@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
     flex: 1,
     display: 'flex',
     flexDirection: 'column',
-    width: '65vw',
+    width: '65%',
     color: 'red',
   },
 })
