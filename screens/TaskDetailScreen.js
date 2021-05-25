@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text, View, StyleSheet } from 'react-native'
+import { Text, View, StyleSheet, Linking } from 'react-native'
 
 const TaskDetailScreen = ({ navigation, route }) => {
   const task = route.params.task
@@ -13,6 +13,15 @@ const TaskDetailScreen = ({ navigation, route }) => {
       </Text>
       <Text style={styles.owner}>- {task.owner} -</Text>
       <Text style={styles.description}>{task.description}</Text>
+      {task.resources != "" &&
+      <Text
+          style={styles.resource}
+          onPress={() => Linking.openURL(task.resources)}
+        >
+          {task.resources}
+      </Text>
+      }
+      
       <View style={styles.statusContainer}>
         <Text style={styles.incompleteStatus}>{task.status}</Text>
       </View>
@@ -42,6 +51,12 @@ const styles = StyleSheet.create({
   description: {
     fontSize: 16,
     marginBottom: 10,
+  },
+  resource: {
+    fontSize: 16,
+    marginBottom: 10,
+    color: "blue",
+    textDecorationLine: "underline",
   },
   date: {
     fontSize: 14,
