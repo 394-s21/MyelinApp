@@ -4,18 +4,9 @@ import { ScrollView } from 'react-native-gesture-handler'
 import Form from '../components/Form'
 import {firebase} from '../firebase'
 
-const CreateTaskScreen = ({ navigation, route }) => {
-  const [submitted, setSubmitted] = useState(false)
-  //const [newTask, setNewTask] = useState({}) // Keep track of new task
-
-
-  // const CourseEditScreen = ({ navigation, route }) => {
-  //   const course = route.params.course;
-  //   const [submitError, setSubmitError] = useState('');
-
+const EditTaskScreen = ({ navigation, route }) => {
+  const task = route.params.task
   const userId = route.params.userId
-  const name = route.params.name
-  const detail = route.params.detail
 
   // Update the 'newTask' variable based on user input
     async function handleSubmit(values) {
@@ -30,23 +21,26 @@ const CreateTaskScreen = ({ navigation, route }) => {
       comments: '',
       notifications: '',
     }
-      firebase.database().ref('users').child(userId).child('tasks').child(Date.now()).set(newTask).catch(error => {
-        console.log(error.message);
-      });
+    
+    firebase.database().ref('users').child(userId).child('tasks').child(task.id).set(newTask).catch(error => {
+      console.log(error.message);
+    });
+
+    navigation.navigate('TaskDetailScreen', {task: newTask, userId})
   }
 
-  return !submitted ? (
+  return (
     <SafeAreaView style={styles.container}>
       <Text label="Name" style={styles.name}>
-        Post a new task!
+        Task Edit Screen
       </Text>
       <ScrollView>
         <Form
           initialValues={{
-            title: name,
-            description: detail,
+            title: task.title,
+            description: task.description,
             dateCreated: '',
-            dateDue: '',
+            dateDue: task.dateDue,
             status: 'Incomplete',
             owner: '',
             comments: '',
@@ -54,7 +48,6 @@ const CreateTaskScreen = ({ navigation, route }) => {
             resources:'',
           }}
           onSubmit={(values) => {
-            setSubmitted(true);
             handleSubmit(values);
           }}
         >
@@ -73,19 +66,9 @@ const CreateTaskScreen = ({ navigation, route }) => {
             placeholder="Enter due date for this task"
             autoCapitalize="none"
           />
-          <Form.Button title={'Add new task'} />
+          <Form.Button title={'Save changes'} />
         </Form>
       </ScrollView>
-    </SafeAreaView>
-  ) : (
-    <SafeAreaView style={styles.container}>
-      <Text style={styles.h1_text}>Task successfully created!</Text>
-      <TouchableOpacity
-        style={styles.addTaskButton}
-        onPress={() => navigation.navigate('MainTasksScreen')} // Pass new task to 'MainTasksScreen.js'
-      >
-        <Text style={styles.buttonText}>Return to Home Screen</Text>
-      </TouchableOpacity>
     </SafeAreaView>
   )
 }
@@ -163,4 +146,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default CreateTaskScreen
+export default EditTaskScreen

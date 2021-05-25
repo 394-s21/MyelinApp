@@ -1,8 +1,9 @@
 import React from 'react'
-import { Text, View, StyleSheet, Linking } from 'react-native'
+import { Text, View, StyleSheet, Linking, Button } from 'react-native'
 
 const TaskDetailScreen = ({ navigation, route }) => {
   const task = route.params.task
+  const userId = route.params.userId
 
   // handle comments & notif later
   return (
@@ -25,6 +26,10 @@ const TaskDetailScreen = ({ navigation, route }) => {
       <View style={styles.statusContainer}>
         <Text style={styles.incompleteStatus}>{task.status}</Text>
       </View>
+      <Button 
+        title= "Edit Task"
+        onPress={ () => navigation.navigate('EditTaskScreen', {task, userId}) }
+      />
     </View>
   )
 }
@@ -43,6 +48,7 @@ const styles = StyleSheet.create({
     paddingRight: 75,
     borderWidth: 1,
     borderColor: 'black',
+    marginBottom: 15,
   },
   title: {
     fontSize: 20,
