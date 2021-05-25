@@ -1,4 +1,4 @@
-export const PrebuiltTasks = {
+export const PrebuiltTaskArray = {
 
   tasks : [
     {
@@ -13,7 +13,7 @@ export const PrebuiltTasks = {
     },
     {
       name:"What is the best diet for me?",
-      detail: "Please give me information on the most appropriate diet for me..",
+      detail: "Please give me information on the most appropriate diet for me.",
 
     },
     {

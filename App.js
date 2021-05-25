@@ -6,6 +6,7 @@ import MainTasksScreen from './screens/MainTasksScreen'
 import TaskDetailScreen from './screens/TaskDetailScreen'
 import CreateTaskScreen from './screens/CreateTaskScreen'
 import ViewPatientsScreen from './screens/ViewPatientsScreen'
+import PrebuiltTaskScreen from './screens/PrebuiltTaskScreen'
 
 
 const Stack = createStackNavigator()
@@ -39,7 +40,11 @@ export default function App() {
           component={MainTasksScreen}
           options={{ title: 'Main Tasks' }}
         />
-
+        <Stack.Screen
+          name="PrebuiltTaskScreen"
+          component={PrebuiltTaskScreen}
+          options={{ title: 'Choose from Pre-Created Tasks' }}
+        />
         <Stack.Screen
           name="CreateTaskScreen"
           component={CreateTaskScreen}

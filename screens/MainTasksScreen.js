@@ -18,7 +18,7 @@ const MainTasksScreen = ({ navigation, route }) => {
   return (
     <View style={styles.container}>
       <TouchableOpacity
-        onPress={() => navigation.navigate('CreateTaskScreen', {userId})}
+        onPress={() => navigation.navigate('PrebuiltTaskScreen', {userId})}
         style={styles.newTaskButton}
       >
         <Text style={styles.title}>Create new task</Text>

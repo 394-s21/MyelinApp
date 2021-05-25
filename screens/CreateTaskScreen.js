@@ -14,6 +14,8 @@ const CreateTaskScreen = ({ navigation, route }) => {
   //   const [submitError, setSubmitError] = useState('');
 
   const userId = route.params.userId
+  const name = route.params.name
+  const detail = route.params.detail
 
   // Update the 'newTask' variable based on user input
     async function handleSubmit(values) {
@@ -41,8 +43,8 @@ const CreateTaskScreen = ({ navigation, route }) => {
       <ScrollView>
         <Form
           initialValues={{
-            title: '',
-            description: '',
+            title: name,
+            description: detail,
             dateCreated: '',
             dateDue: '',
             status: 'Incomplete',
