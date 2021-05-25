@@ -5,22 +5,17 @@ import Form from '../components/Form'
 import { firebase } from '../firebase'
 
 const EditTaskScreen = ({ navigation, route }) => {
+  const [submitError, setSubmitError] = useState('')
   const task = route.params.task
   const thisUser = route.params.thisUser
   const userId = thisUser.id
 
   // Update the 'newTask' variable based on user input
   async function handleSubmit(values) {
-    const { title, description, dateDue } = values
     const newTask = {
-      title,
-      description,
-      dateCreated: Date(),
-      dateDue,
+      ...values,
+      dateModified: Date(),
       status: 'Incomplete',
-      owner: userId,
-      comments: '',
-      notifications: '',
     }
 
     firebase
@@ -31,11 +26,12 @@ const EditTaskScreen = ({ navigation, route }) => {
       .child(task.id)
       .set(newTask)
       .catch((error) => {
-        console.log(error.message)
+        setSubmitError(error.message)
       })
 
     navigation.navigate('TaskDetailScreen', { task: newTask, thisUser })
   }
+  console.log(task)
 
   return (
     <SafeAreaView style={styles.container}>
@@ -45,15 +41,7 @@ const EditTaskScreen = ({ navigation, route }) => {
       <ScrollView>
         <Form
           initialValues={{
-            title: task.title,
-            description: task.description,
-            dateCreated: '',
-            dateDue: task.dateDue,
-            status: 'Incomplete',
-            owner: '',
-            comments: '',
-            notifications: '',
-            resources: '',
+            ...task,
           }}
           onSubmit={(values) => {
             handleSubmit(values)
@@ -75,6 +63,7 @@ const EditTaskScreen = ({ navigation, route }) => {
             autoCapitalize="none"
           />
           <Form.Button title={'Save changes'} />
+          <Form.ErrorMessage error={submitError} />
         </Form>
       </ScrollView>
     </SafeAreaView>
