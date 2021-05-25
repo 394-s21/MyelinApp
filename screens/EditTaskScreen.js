@@ -27,7 +27,7 @@ const EditTaskScreen = ({ navigation, route }) => {
       console.log(error.message);
     });
 
-    navigation.navigate('TaskDetailScreen', {task: newTask, userId})
+    navigation.navigate('TaskDetailScreen', {task: newTask, thisUser})
   }
 
   return (
