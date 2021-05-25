@@ -3,6 +3,7 @@ import { Text, View, StyleSheet, Linking, Button } from 'react-native'
 
 const TaskDetailScreen = ({ navigation, route }) => {
   const task = route.params.task
+  const userId = route.params.userId
 
   // handle comments & notif later
   return (
@@ -27,6 +28,7 @@ const TaskDetailScreen = ({ navigation, route }) => {
       </View>
       <Button 
         title= "Edit Task"
+        onPress={ () => navigation.navigate('EditTaskScreen', {task, userId}) }
       />
     </View>
   )

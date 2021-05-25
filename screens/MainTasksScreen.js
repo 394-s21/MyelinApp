@@ -7,13 +7,18 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
 const MainTasksScreen = ({ navigation, route }) => {
   const view = (task) => {
-    navigation.navigate('TaskDetailScreen', {task})
+    navigation.navigate('TaskDetailScreen', {task, userId})
   }
 
   const thisUser = route.params.user
   const userId = thisUser.id
 
-  const taskArray = Object.keys(thisUser.tasks).map((key) => thisUser.tasks[key])
+  const taskArray = [];
+  Object.keys(thisUser.tasks).map((key) => {
+    let task = thisUser.tasks[key];
+    task['id'] = key;
+    taskArray.push(task);
+  })
 
   return (
     <View style={styles.container}>

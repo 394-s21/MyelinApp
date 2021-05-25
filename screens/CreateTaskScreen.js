@@ -49,6 +49,7 @@ const CreateTaskScreen = ({ navigation, route }) => {
             owner: '',
             comments: '',
             notifications: '',
+            resources:'',
           }}
           onSubmit={(values) => {
             setSubmitted(true);

@@ -5,7 +5,7 @@ import Form from '../components/Form'
 import {firebase} from '../firebase'
 
 const EditTaskScreen = ({ navigation, route }) => {
-
+  const task = route.params.task
   const userId = route.params.userId
 
   // Update the 'newTask' variable based on user input
@@ -21,27 +21,31 @@ const EditTaskScreen = ({ navigation, route }) => {
       comments: '',
       notifications: '',
     }
-      firebase.database().ref('users').child(userId).child('tasks').child(Date.now()).set(newTask).catch(error => {
-        console.log(error.message);
-      });
+    
+    firebase.database().ref('users').child(userId).child('tasks').child(task.id).set(newTask).catch(error => {
+      console.log(error.message);
+    });
+
+    navigation.navigate('TaskDetailScreen', {task: newTask, userId})
   }
 
   return (
     <SafeAreaView style={styles.container}>
       <Text label="Name" style={styles.name}>
-        Post a new task!
+        Task Edit Screen
       </Text>
       <ScrollView>
         <Form
           initialValues={{
-            title: '',
-            description: '',
+            title: task.title,
+            description: task.description,
             dateCreated: '',
-            dateDue: '',
+            dateDue: task.dateDue,
             status: 'Incomplete',
             owner: '',
             comments: '',
             notifications: '',
+            resources:'',
           }}
           onSubmit={(values) => {
             handleSubmit(values);
@@ -62,7 +66,7 @@ const EditTaskScreen = ({ navigation, route }) => {
             placeholder="Enter due date for this task"
             autoCapitalize="none"
           />
-          <Form.Button title={'Add new task'} />
+          <Form.Button title={'Save changes'} />
         </Form>
       </ScrollView>
     </SafeAreaView>
