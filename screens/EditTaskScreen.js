@@ -20,10 +20,7 @@ const EditTaskScreen = ({ navigation, route }) => {
 
     firebase
       .database()
-      .ref('users')
-      .child(userId)
-      .child('tasks')
-      .child(task.id)
+      .ref(`users/${userId}/tasks/${task.id}`)
       .set(newTask)
       .catch((error) => {
         setSubmitError(error.message)

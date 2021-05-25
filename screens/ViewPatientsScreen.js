@@ -11,11 +11,11 @@ const ViewPatientsScreen = ({ navigation }) => {
   const [userList, setUserList] = useState([])
 
   useEffect(() => {
-    const db = firebase.database().ref()
+    const db = firebase.database().ref('users')
     const handleData = (snap) => {
       if (snap.val()) {
-        const val = snap.val()
-        setUserList(Object.keys(val.users).map((key) => val.users[key]))
+        const users = snap.val()
+        setUserList(Object.keys(users).map((key) => users[key]))
       }
     }
     db.on('value', handleData, (error) => console.log(error))
