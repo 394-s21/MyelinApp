@@ -4,13 +4,8 @@ import { PrebuiltTaskArray } from '../utils/dataTask'
 import PrebuiltTask from '../components/PrebuiltTask'
 
 const PrebuiltTaskScreen = ({ navigation, route }) => {
-  let name
-  let detail
-
   const view = (prebuiltTask) => {
-    name = prebuiltTask.name
-    detail = prebuiltTask.detail
-    navigation.navigate('CreateTaskScreen', { thisUser, name, detail })
+    navigation.navigate('CreateTaskScreen', { thisUser, prebuiltTask })
   }
 
   const thisUser = route.params.thisUser
@@ -19,12 +14,8 @@ const PrebuiltTaskScreen = ({ navigation, route }) => {
     <View style={styles.container}>
       <TouchableOpacity
         onPress={() => {
-          name = ''
-          detail = ''
           return navigation.navigate('CreateTaskScreen', {
             thisUser,
-            name,
-            detail,
           })
         }}
         style={styles.newTaskButton}

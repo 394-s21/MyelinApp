@@ -3,42 +3,33 @@ import { SafeAreaView, StyleSheet, Text, TouchableOpacity } from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler'
 import Form from '../components/Form'
 import { firebase } from '../firebase'
+import { taskBase } from '../utils/taskBase'
 
 const CreateTaskScreen = ({ navigation, route }) => {
   const [submitted, setSubmitted] = useState(false)
-  //const [newTask, setNewTask] = useState({}) // Keep track of new task
-
-  // const CourseEditScreen = ({ navigation, route }) => {
-  //   const course = route.params.course;
-  //   const [submitError, setSubmitError] = useState('');
+  const [submitError, setSubmitError] = useState('')
 
   const thisUser = route.params.thisUser
   const userId = thisUser.id
-  const name = route.params.name
-  const detail = route.params.detail
+  const prebuiltTask = route.params.prebuiltTask
 
   // Update the 'newTask' variable based on user input
   async function handleSubmit(values) {
-    const { title, description, dateDue } = values
+    const date = Date()
     const newTask = {
-      title,
-      description,
-      dateCreated: Date(),
-      dateDue,
+      ...values,
+      dateCreated: date,
+      dateModified: date,
       status: 'Incomplete',
       owner: userId,
-      comments: '',
-      notifications: '',
     }
+
     firebase
       .database()
-      .ref('users')
-      .child(userId)
-      .child('tasks')
-      .child(Date.now())
+      .ref(`users/${userId}/tasks/${Date.now()}`)
       .set(newTask)
       .catch((error) => {
-        console.log(error.message)
+        setSubmitError(error.message)
       })
   }
 
@@ -50,15 +41,8 @@ const CreateTaskScreen = ({ navigation, route }) => {
       <ScrollView>
         <Form
           initialValues={{
-            title: name,
-            description: detail,
-            dateCreated: '',
-            dateDue: '',
-            status: 'Incomplete',
-            owner: '',
-            comments: '',
-            notifications: '',
-            resources: '',
+            ...taskBase,
+            ...prebuiltTask,
           }}
           onSubmit={(values) => {
             setSubmitted(true)
@@ -81,6 +65,7 @@ const CreateTaskScreen = ({ navigation, route }) => {
             autoCapitalize="none"
           />
           <Form.Button title={'Add new task'} />
+          <Form.ErrorMessage error={submitError} />
         </Form>
       </ScrollView>
     </SafeAreaView>
