@@ -1,18 +1,14 @@
 import React, { useState, useEffect } from 'react'
-import { Text, View, StyleSheet, TouchableOpacity, Button } from 'react-native'
-import { users } from '../utils/data'
-import TaskList from '../components/TaskList'
-import { useSafeAreaInsets } from 'react-native-safe-area-context'
+import { View, StyleSheet } from 'react-native'
 import UserProfile from '../components/UserProfile'
 import { firebase } from '../firebase'
 
-
-const ViewPatientsScreen = ({ navigation, route }) => {
+const ViewPatientsScreen = ({ navigation }) => {
   const view = (user) => {
-    navigation.navigate('MainTasksScreen', {user : user})
+    navigation.navigate('MainTasksScreen', { user: user })
   }
 
-  const [userList, setUserList] = useState([]);
+  const [userList, setUserList] = useState([])
 
   useEffect(() => {
     const db = firebase.database().ref()
@@ -26,11 +22,10 @@ const ViewPatientsScreen = ({ navigation, route }) => {
     return () => db.off('value', handleData)
   }, [])
 
-
   return (
     <View style={styles.container}>
       {userList.map((user, idx) => (
-        <UserProfile key={idx} user={user} view={view}/>
+        <UserProfile key={idx} user={user} view={view} />
       ))}
     </View>
   )
@@ -51,7 +46,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     padding: 5,
     maxWidth: 800,
-    shadowOffset:{width: 2,  height: 2},
+    shadowOffset: { width: 2, height: 2 },
     shadowColor: 'black',
     shadowOpacity: 1.0,
   },

@@ -7,8 +7,10 @@ import Colors from './colors'
 export default function FormButton({ title, onPress, color = 'lightPurple' }) {
   const { handleSubmit, values } = useFormikContext()
   const onPressAndSubmit = () => {
-    if (onPress) { onPress() };
-    handleSubmit();
+    if (onPress) {
+      onPress()
+    }
+    handleSubmit()
   }
   const text = typeof title === 'function' ? title(values) : title
 
@@ -29,7 +31,7 @@ const styles = StyleSheet.create({
     borderColor: 'black',
     textAlign: 'center',
     padding: 5,
-    shadowOffset:{ width: 2,  height: 2, },
+    shadowOffset: { width: 2, height: 2 },
     shadowColor: 'black',
     shadowOpacity: 1.0,
   },
@@ -39,5 +41,4 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     textTransform: 'uppercase',
   },
-  
 })

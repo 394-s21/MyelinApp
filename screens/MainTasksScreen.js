@@ -1,33 +1,30 @@
 import React from 'react'
-import { Text, View, StyleSheet, TouchableOpacity, Button } from 'react-native'
-import { users } from '../utils/data'
+import { Text, View, StyleSheet, TouchableOpacity } from 'react-native'
 import TaskList from '../components/TaskList'
-import { useSafeAreaInsets } from 'react-native-safe-area-context'
-
 
 const MainTasksScreen = ({ navigation, route }) => {
   const view = (task) => {
-    navigation.navigate('TaskDetailScreen', {task, thisUser})
+    navigation.navigate('TaskDetailScreen', { task, thisUser })
   }
 
   const thisUser = route.params.user
 
-  const taskArray = [];
+  const taskArray = []
   Object.keys(thisUser.tasks).map((key) => {
-    let task = thisUser.tasks[key];
-    task['id'] = key;
-    taskArray.push(task);
+    let task = thisUser.tasks[key]
+    task['id'] = key
+    taskArray.push(task)
   })
 
   return (
     <View style={styles.container}>
       <TouchableOpacity
-        onPress={() => navigation.navigate('PrebuiltTaskScreen', {thisUser})}
+        onPress={() => navigation.navigate('PrebuiltTaskScreen', { thisUser })}
         style={styles.newTaskButton}
       >
         <Text style={styles.title}>Create new task</Text>
       </TouchableOpacity>
-      <TaskList tasks={taskArray} view={view}/>
+      <TaskList tasks={taskArray} view={view} />
     </View>
   )
 }
@@ -48,7 +45,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     padding: 5,
     maxWidth: 800,
-    shadowOffset:{width: 2,  height: 2},
+    shadowOffset: { width: 2, height: 2 },
     shadowColor: 'black',
     shadowOpacity: 1.0,
   },

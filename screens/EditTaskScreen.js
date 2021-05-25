@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import { SafeAreaView, StyleSheet, Text, TouchableOpacity } from 'react-native'
+import { SafeAreaView, StyleSheet, Text } from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler'
 import Form from '../components/Form'
-import {firebase} from '../firebase'
+import { firebase } from '../firebase'
 
 const EditTaskScreen = ({ navigation, route }) => {
   const task = route.params.task
@@ -10,8 +10,8 @@ const EditTaskScreen = ({ navigation, route }) => {
   const userId = thisUser.id
 
   // Update the 'newTask' variable based on user input
-    async function handleSubmit(values) {
-    const { title, description, dateDue } = values;
+  async function handleSubmit(values) {
+    const { title, description, dateDue } = values
     const newTask = {
       title,
       description,
@@ -22,12 +22,19 @@ const EditTaskScreen = ({ navigation, route }) => {
       comments: '',
       notifications: '',
     }
-    
-    firebase.database().ref('users').child(userId).child('tasks').child(task.id).set(newTask).catch(error => {
-      console.log(error.message);
-    });
 
-    navigation.navigate('TaskDetailScreen', {task: newTask, thisUser})
+    firebase
+      .database()
+      .ref('users')
+      .child(userId)
+      .child('tasks')
+      .child(task.id)
+      .set(newTask)
+      .catch((error) => {
+        console.log(error.message)
+      })
+
+    navigation.navigate('TaskDetailScreen', { task: newTask, thisUser })
   }
 
   return (
@@ -46,10 +53,10 @@ const EditTaskScreen = ({ navigation, route }) => {
             owner: '',
             comments: '',
             notifications: '',
-            resources:'',
+            resources: '',
           }}
           onSubmit={(values) => {
-            handleSubmit(values);
+            handleSubmit(values)
           }}
         >
           <Form.Field
@@ -82,7 +89,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#c3a6ff',
     textAlign: 'center',
     padding: 5,
-    shadowOffset:{ width: 2,  height: 2, },
+    shadowOffset: { width: 2, height: 2 },
     shadowColor: 'black',
     shadowOpacity: 1.0,
   },
@@ -144,7 +151,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     color: 'black',
     textAlign: 'center',
-  }
+  },
 })
 
 export default EditTaskScreen

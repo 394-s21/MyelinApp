@@ -4,20 +4,21 @@ import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 // TODO (L11): conditional styling?
 
 const Task = ({ task, view }) => {
-
   return (
-  <TouchableOpacity onPress={() => view(task)}>
-    <View style={styles.container}>
-      <View style={styles.textView}>
-        <Text style={styles.title}>{task.title}</Text>
-        <Text style={styles.dateDue}>Due: {task.dateDue}</Text>
-        <Text style={styles.incompleteStatus}>Status: {task.status}</Text>
+    <TouchableOpacity onPress={() => view(task)}>
+      <View style={styles.container}>
+        <View style={styles.textView}>
+          <Text style={styles.title}>{task.title}</Text>
+          <Text style={styles.dateDue}>Due: {task.dateDue}</Text>
+          <Text style={styles.incompleteStatus}>Status: {task.status}</Text>
+        </View>
+        <View style={styles.urgencyView}>
+          <Text style={styles.urgencyStatus}>
+            {task.urgency === 1 ? '❗️' : ''}{' '}
+          </Text>
+        </View>
       </View>
-      <View style={styles.urgencyView}>
-        <Text style={styles.urgencyStatus}>{task.urgency === 1 ? "❗️": ""} </Text>
-      </View>
-    </View>
-  </TouchableOpacity>
+    </TouchableOpacity>
   )
 }
 
@@ -29,8 +30,8 @@ const row = {
 
 const styles = StyleSheet.create({
   container: {
-    display: "flex",
-    flexDirection: "row",
+    display: 'flex',
+    flexDirection: 'row',
     backgroundColor: '#fff',
     alignItems: 'flex-start',
     marginTop: 20,
@@ -43,7 +44,7 @@ const styles = StyleSheet.create({
   },
   title: {
     ...row,
-    fontWeight: "500",
+    fontWeight: '500',
   },
   dateDue: {
     ...row,
