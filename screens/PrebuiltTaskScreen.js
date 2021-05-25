@@ -10,10 +10,11 @@ const PrebuiltTaskScreen = ({ navigation, route }) => {
   const view = (prebuiltTask) => {
     name = prebuiltTask.name
     detail = prebuiltTask.detail
-    navigation.navigate('CreateTaskScreen', {userId, name, detail})
+    navigation.navigate('CreateTaskScreen', {thisUser, name, detail})
   }
 
-  const userId = route.params.userId
+  const thisUser = route.params.thisUser
+  const userId = thisUser.id
 
   return (
     <View style={styles.container}>
@@ -21,7 +22,7 @@ const PrebuiltTaskScreen = ({ navigation, route }) => {
         onPress={() => {
             name = ""
             detail = ""
-            return navigation.navigate('CreateTaskScreen', {userId, name, detail})
+            return navigation.navigate('CreateTaskScreen', {thisUser, name, detail})
         }}
         style={styles.newTaskButton}
       >

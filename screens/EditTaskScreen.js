@@ -6,7 +6,8 @@ import {firebase} from '../firebase'
 
 const EditTaskScreen = ({ navigation, route }) => {
   const task = route.params.task
-  const userId = route.params.userId
+  const thisUser = route.params.thisUser
+  const userId = thisUser.id
 
   // Update the 'newTask' variable based on user input
     async function handleSubmit(values) {

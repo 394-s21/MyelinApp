@@ -7,11 +7,10 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
 const MainTasksScreen = ({ navigation, route }) => {
   const view = (task) => {
-    navigation.navigate('TaskDetailScreen', {task, userId})
+    navigation.navigate('TaskDetailScreen', {task, thisUser})
   }
 
   const thisUser = route.params.user
-  const userId = thisUser.id
 
   const taskArray = [];
   Object.keys(thisUser.tasks).map((key) => {
@@ -23,7 +22,7 @@ const MainTasksScreen = ({ navigation, route }) => {
   return (
     <View style={styles.container}>
       <TouchableOpacity
-        onPress={() => navigation.navigate('PrebuiltTaskScreen', {userId})}
+        onPress={() => navigation.navigate('PrebuiltTaskScreen', {thisUser})}
         style={styles.newTaskButton}
       >
         <Text style={styles.title}>Create new task</Text>

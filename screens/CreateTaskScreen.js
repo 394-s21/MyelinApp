@@ -13,7 +13,8 @@ const CreateTaskScreen = ({ navigation, route }) => {
   //   const course = route.params.course;
   //   const [submitError, setSubmitError] = useState('');
 
-  const userId = route.params.userId
+  const thisUser = route.params.thisUser
+  const userId = thisUser.id
   const name = route.params.name
   const detail = route.params.detail
 
@@ -82,7 +83,7 @@ const CreateTaskScreen = ({ navigation, route }) => {
       <Text style={styles.h1_text}>Task successfully created!</Text>
       <TouchableOpacity
         style={styles.addTaskButton}
-        onPress={() => navigation.navigate('MainTasksScreen')} // Pass new task to 'MainTasksScreen.js'
+        onPress={() => navigation.navigate('MainTasksScreen', {thisUser})} // Pass new task to 'MainTasksScreen.js'
       >
         <Text style={styles.buttonText}>Return to Home Screen</Text>
       </TouchableOpacity>
