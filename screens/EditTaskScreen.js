@@ -28,7 +28,6 @@ const EditTaskScreen = ({ navigation, route }) => {
 
     navigation.navigate('TaskDetailScreen', { task: newTask, thisUser })
   }
-  console.log(task)
 
   return (
     <SafeAreaView style={styles.container}>

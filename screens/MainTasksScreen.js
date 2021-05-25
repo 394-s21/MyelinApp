@@ -1,22 +1,41 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Text, View, StyleSheet, TouchableOpacity } from 'react-native'
 import TaskList from '../components/TaskList'
+import { firebase } from '../firebase'
+
+const fixPatientTasks = (patient) => {
+  const taskArray = []
+  Object.keys(patient.tasks).map((key) => {
+    const task = patient.tasks[key]
+    task['id'] = key
+    taskArray.push(task)
+  })
+  return {
+    ...patient,
+    taskList: taskArray,
+  }
+}
 
 const MainTasksScreen = ({ navigation, route }) => {
+  const userId = route.params.user.id
+  const [thisUser, setThisUser] = useState(null)
+
   const view = (task) => {
     navigation.navigate('TaskDetailScreen', { task, thisUser })
   }
 
-  const thisUser = route.params.user
+  useEffect(() => {
+    const db = firebase.database().ref(`users/${userId}`)
+    const handleData = (snap) => {
+      if (snap.val()) setThisUser(fixPatientTasks(snap.val()))
+    }
+    db.on('value', handleData, (error) => console.log(error))
+    return () => {
+      db.off('value', handleData)
+    }
+  }, [])
 
-  const taskArray = []
-  Object.keys(thisUser.tasks).map((key) => {
-    let task = thisUser.tasks[key]
-    task['id'] = key
-    taskArray.push(task)
-  })
-
-  return (
+  return thisUser ? (
     <View style={styles.container}>
       <TouchableOpacity
         onPress={() => navigation.navigate('PrebuiltTaskScreen', { thisUser })}
@@ -24,7 +43,11 @@ const MainTasksScreen = ({ navigation, route }) => {
       >
         <Text style={styles.title}>Create new task</Text>
       </TouchableOpacity>
-      <TaskList tasks={taskArray} view={view} />
+      <TaskList tasks={thisUser.taskList} view={view} />
+    </View>
+  ) : (
+    <View style={styles.container}>
+      <Text>Loading...</Text>
     </View>
   )
 }
