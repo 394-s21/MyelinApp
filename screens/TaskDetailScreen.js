@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text, View, StyleSheet, Linking } from 'react-native'
+import { Text, View, StyleSheet, Linking, Button } from 'react-native'
 
 const TaskDetailScreen = ({ navigation, route }) => {
   const task = route.params.task
@@ -25,6 +25,9 @@ const TaskDetailScreen = ({ navigation, route }) => {
       <View style={styles.statusContainer}>
         <Text style={styles.incompleteStatus}>{task.status}</Text>
       </View>
+      <Button 
+        title= "Edit Task"
+      />
     </View>
   )
 }
@@ -43,6 +46,7 @@ const styles = StyleSheet.create({
     paddingRight: 75,
     borderWidth: 1,
     borderColor: 'black',
+    marginBottom: 15,
   },
   title: {
     fontSize: 20,
