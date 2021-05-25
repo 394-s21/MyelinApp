@@ -1,7 +1,7 @@
 {
   "files": {
-    "app.js": "/MyelinApp/static/js/app.0b234fac.chunk.js",
-    "app.js.map": "/MyelinApp/static/js/app.0b234fac.chunk.js.map",
+    "app.js": "/MyelinApp/static/js/app.a5b78d67.chunk.js",
+    "app.js.map": "/MyelinApp/static/js/app.a5b78d67.chunk.js.map",
     "runtime~app.js": "/MyelinApp/static/js/runtime~app.c9bcaa24.js",
     "runtime~app.js.map": "/MyelinApp/static/js/runtime~app.c9bcaa24.js.map",
     "static/js/2.91578b34.chunk.js": "/MyelinApp/static/js/2.91578b34.chunk.js",
@@ -29,6 +29,6 @@
   "entrypoints": [
     "static/js/runtime~app.c9bcaa24.js",
     "static/js/2.91578b34.chunk.js",
-    "static/js/app.0b234fac.chunk.js"
+    "static/js/app.a5b78d67.chunk.js"
   ]
 }
