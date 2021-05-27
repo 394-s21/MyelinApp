@@ -1,33 +1,32 @@
 import React, { useState } from 'react'
-import { SafeAreaView, StyleSheet, Text, TouchableOpacity } from 'react-native'
+import { SafeAreaView, StyleSheet, Text } from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler'
 import Form from '../components/Form'
-import {firebase} from '../firebase'
+import { firebase } from '../firebase'
 
 const EditTaskScreen = ({ navigation, route }) => {
+  const [submitError, setSubmitError] = useState('')
   const task = route.params.task
   const thisUser = route.params.thisUser
   const userId = thisUser.id
 
   // Update the 'newTask' variable based on user input
-    async function handleSubmit(values) {
-    const { title, description, dateDue } = values;
+  async function handleSubmit(values) {
     const newTask = {
-      title,
-      description,
-      dateCreated: Date(),
-      dateDue,
+      ...values,
+      dateModified: Date(),
       status: 'Incomplete',
-      owner: userId,
-      comments: '',
-      notifications: '',
     }
-    
-    firebase.database().ref('users').child(userId).child('tasks').child(task.id).set(newTask).catch(error => {
-      console.log(error.message);
-    });
 
-    navigation.navigate('TaskDetailScreen', {task: newTask, userId})
+    firebase
+      .database()
+      .ref(`users/${userId}/tasks/${task.id}`)
+      .set(newTask)
+      .catch((error) => {
+        setSubmitError(error.message)
+      })
+
+    navigation.navigate('TaskDetailScreen', { task: newTask, thisUser })
   }
 
   return (
@@ -38,18 +37,10 @@ const EditTaskScreen = ({ navigation, route }) => {
       <ScrollView>
         <Form
           initialValues={{
-            title: task.title,
-            description: task.description,
-            dateCreated: '',
-            dateDue: task.dateDue,
-            status: 'Incomplete',
-            owner: '',
-            comments: '',
-            notifications: '',
-            resources:'',
+            ...task,
           }}
           onSubmit={(values) => {
-            handleSubmit(values);
+            handleSubmit(values)
           }}
         >
           <Form.Field
@@ -68,6 +59,7 @@ const EditTaskScreen = ({ navigation, route }) => {
             autoCapitalize="none"
           />
           <Form.Button title={'Save changes'} />
+          <Form.ErrorMessage error={submitError} />
         </Form>
       </ScrollView>
     </SafeAreaView>
@@ -82,7 +74,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#c3a6ff',
     textAlign: 'center',
     padding: 5,
-    shadowOffset:{ width: 2,  height: 2, },
+    shadowOffset: { width: 2, height: 2 },
     shadowColor: 'black',
     shadowOpacity: 1.0,
   },
@@ -144,7 +136,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     color: 'black',
     textAlign: 'center',
-  }
+  },
 })
 
 export default EditTaskScreen

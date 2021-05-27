@@ -4,7 +4,7 @@ import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 const PrebuiltTask = ({ prebuiltTask, view }) => (
   <TouchableOpacity style={{ height: 60 }} onPress={() => view(prebuiltTask)}>
     <View style={styles.container}>
-      <Text style={styles.title}>{prebuiltTask.name}</Text>
+      <Text style={styles.title}>{prebuiltTask.title}</Text>
     </View>
   </TouchableOpacity>
 )
@@ -17,8 +17,8 @@ const row = {
 
 const styles = StyleSheet.create({
   container: {
-    display: "flex",
-    flexDirection: "row",
+    display: 'flex',
+    flexDirection: 'row',
     backgroundColor: '#fff',
     alignItems: 'flex-start',
     marginTop: 20,
@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
   },
   title: {
     ...row,
-    fontWeight: "500",
+    fontWeight: '500',
   },
   dateDue: {
     ...row,

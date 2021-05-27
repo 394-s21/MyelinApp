@@ -1,28 +1,22 @@
 import React from 'react'
-import { Text, View, StyleSheet, TouchableOpacity, Button } from 'react-native'
-import {PrebuiltTaskArray} from '../utils/dataTask'
+import { Text, View, StyleSheet, TouchableOpacity } from 'react-native'
+import { PrebuiltTaskArray } from '../utils/dataTask'
 import PrebuiltTask from '../components/PrebuiltTask'
 
 const PrebuiltTaskScreen = ({ navigation, route }) => {
-  let name
-  let detail
-
   const view = (prebuiltTask) => {
-    name = prebuiltTask.name
-    detail = prebuiltTask.detail
-    navigation.navigate('CreateTaskScreen', {thisUser, name, detail})
+    navigation.navigate('CreateTaskScreen', { thisUser, prebuiltTask })
   }
 
   const thisUser = route.params.thisUser
-  const userId = thisUser.id
 
   return (
     <View style={styles.container}>
       <TouchableOpacity
         onPress={() => {
-            name = ""
-            detail = ""
-            return navigation.navigate('CreateTaskScreen', {thisUser, name, detail})
+          return navigation.navigate('CreateTaskScreen', {
+            thisUser,
+          })
         }}
         style={styles.newTaskButton}
       >
@@ -30,7 +24,7 @@ const PrebuiltTaskScreen = ({ navigation, route }) => {
       </TouchableOpacity>
       <View style={styles.container}>
         {PrebuiltTaskArray.tasks.map((prebuiltTask, idx) => (
-            <PrebuiltTask key={idx} prebuiltTask={prebuiltTask} view={view}/>
+          <PrebuiltTask key={idx} prebuiltTask={prebuiltTask} view={view} />
         ))}
       </View>
     </View>
@@ -52,7 +46,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     padding: 5,
     maxWidth: 800,
-    shadowOffset:{width: 2,  height: 2},
+    shadowOffset: { width: 2, height: 2 },
     shadowColor: 'black',
     shadowOpacity: 1.0,
   },

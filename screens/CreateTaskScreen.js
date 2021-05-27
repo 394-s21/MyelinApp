@@ -2,38 +2,35 @@ import React, { useState } from 'react'
 import { SafeAreaView, StyleSheet, Text, TouchableOpacity } from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler'
 import Form from '../components/Form'
-import {firebase} from '../firebase'
+import { firebase } from '../firebase'
+import { taskBase } from '../utils/taskBase'
 
 const CreateTaskScreen = ({ navigation, route }) => {
   const [submitted, setSubmitted] = useState(false)
-  //const [newTask, setNewTask] = useState({}) // Keep track of new task
-
-
-  // const CourseEditScreen = ({ navigation, route }) => {
-  //   const course = route.params.course;
-  //   const [submitError, setSubmitError] = useState('');
+  const [submitError, setSubmitError] = useState('')
 
   const thisUser = route.params.thisUser
   const userId = thisUser.id
-  const name = route.params.name
-  const detail = route.params.detail
+  const prebuiltTask = route.params.prebuiltTask
 
   // Update the 'newTask' variable based on user input
-    async function handleSubmit(values) {
-    const { title, description, dateDue } = values;
+  async function handleSubmit(values) {
+    const date = Date()
     const newTask = {
-      title,
-      description,
-      dateCreated: Date(),
-      dateDue,
+      ...values,
+      dateCreated: date,
+      dateModified: date,
       status: 'Incomplete',
       owner: userId,
-      comments: '',
-      notifications: '',
     }
-      firebase.database().ref('users').child(userId).child('tasks').child(Date.now()).set(newTask).catch(error => {
-        console.log(error.message);
-      });
+
+    firebase
+      .database()
+      .ref(`users/${userId}/tasks/${Date.now()}`)
+      .set(newTask)
+      .catch((error) => {
+        setSubmitError(error.message)
+      })
   }
 
   return !submitted ? (
@@ -44,19 +41,12 @@ const CreateTaskScreen = ({ navigation, route }) => {
       <ScrollView>
         <Form
           initialValues={{
-            title: name,
-            description: detail,
-            dateCreated: '',
-            dateDue: '',
-            status: 'Incomplete',
-            owner: '',
-            comments: '',
-            notifications: '',
-            resources:'',
+            ...taskBase,
+            ...prebuiltTask,
           }}
           onSubmit={(values) => {
-            setSubmitted(true);
-            handleSubmit(values);
+            setSubmitted(true)
+            handleSubmit(values)
           }}
         >
           <Form.Field
@@ -75,6 +65,7 @@ const CreateTaskScreen = ({ navigation, route }) => {
             autoCapitalize="none"
           />
           <Form.Button title={'Add new task'} />
+          <Form.ErrorMessage error={submitError} />
         </Form>
       </ScrollView>
     </SafeAreaView>
@@ -83,7 +74,7 @@ const CreateTaskScreen = ({ navigation, route }) => {
       <Text style={styles.h1_text}>Task successfully created!</Text>
       <TouchableOpacity
         style={styles.addTaskButton}
-        onPress={() => navigation.navigate('MainTasksScreen', {thisUser})} // Pass new task to 'MainTasksScreen.js'
+        onPress={() => navigation.navigate('MainTasksScreen', { thisUser })} // Pass new task to 'MainTasksScreen.js'
       >
         <Text style={styles.buttonText}>Return to Home Screen</Text>
       </TouchableOpacity>
@@ -99,7 +90,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#c3a6ff',
     textAlign: 'center',
     padding: 5,
-    shadowOffset:{ width: 2,  height: 2, },
+    shadowOffset: { width: 2, height: 2 },
     shadowColor: 'black',
     shadowOpacity: 1.0,
   },
@@ -161,7 +152,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     color: 'black',
     textAlign: 'center',
-  }
+  },
 })
 
 export default CreateTaskScreen

@@ -9,13 +9,11 @@ import ViewPatientsScreen from './screens/ViewPatientsScreen'
 import PrebuiltTaskScreen from './screens/PrebuiltTaskScreen'
 import EditTaskScreen from './screens/EditTaskScreen'
 
-
 const Stack = createStackNavigator()
 
 export default function App() {
   return (
     <NavigationContainer>
-
       <Stack.Navigator
         screenOptions={{
           headerStyle: {
@@ -35,7 +33,7 @@ export default function App() {
           name="ViewPatientsScreen"
           component={ViewPatientsScreen}
           options={{ title: 'Your Patients' }}
-        />  
+        />
         <Stack.Screen
           name="MainTasksScreen"
           component={MainTasksScreen}

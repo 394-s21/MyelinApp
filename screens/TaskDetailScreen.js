@@ -3,7 +3,7 @@ import { Text, View, StyleSheet, Linking, Button } from 'react-native'
 
 const TaskDetailScreen = ({ navigation, route }) => {
   const task = route.params.task
-  const userId = route.params.userId
+  const thisUser = route.params.thisUser
 
   // handle comments & notif later
   return (
@@ -14,21 +14,23 @@ const TaskDetailScreen = ({ navigation, route }) => {
       </Text>
       <Text style={styles.owner}>- {task.owner} -</Text>
       <Text style={styles.description}>{task.description}</Text>
-      {task.resources != "" &&
-      <Text
+      {task.resources != '' && (
+        <Text
           style={styles.resource}
           onPress={() => Linking.openURL(task.resources)}
         >
           {task.resources}
-      </Text>
-      }
-      
+        </Text>
+      )}
+
       <View style={styles.statusContainer}>
         <Text style={styles.incompleteStatus}>{task.status}</Text>
       </View>
-      <Button 
-        title= "Edit Task"
-        onPress={ () => navigation.navigate('EditTaskScreen', {task, userId}) }
+      <Button
+        title="Edit Task"
+        onPress={() =>
+          navigation.navigate('EditTaskScreen', { task, thisUser })
+        }
       />
     </View>
   )
@@ -52,7 +54,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 20,
-    fontWeight: "500",
+    fontWeight: '500',
   },
   description: {
     fontSize: 16,
@@ -61,8 +63,8 @@ const styles = StyleSheet.create({
   resource: {
     fontSize: 16,
     marginBottom: 10,
-    color: "blue",
-    textDecorationLine: "underline",
+    color: 'blue',
+    textDecorationLine: 'underline',
   },
   date: {
     fontSize: 14,
