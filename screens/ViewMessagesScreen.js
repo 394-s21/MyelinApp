@@ -6,6 +6,7 @@ import {
   View,
   TouchableOpacity,
   ScrollView,
+  Button,
 } from 'react-native'
 import { firebase } from '../firebase'
 
@@ -19,11 +20,16 @@ const MessageField = ({ message }) => {
 }
 
 const RenderMessages = (messages) => {
+  const msgs = Object.values(messages)[0]
   return (
     <ScrollView>
-      {Object.values(messages)[0].map((message) => (
-        <MessageField message={message} />
-      ))}
+      {msgs.length > 1 ? (
+        msgs
+          .slice(1)
+          .map((message, idx) => <MessageField key={idx} message={message} />)
+      ) : (
+        <MessageField message={'No messages.'} />
+      )}
     </ScrollView>
   )
 }
@@ -45,7 +51,6 @@ const ViewMessagesScreen = ({ navigation, route }) => {
         const val = snap.val()
         const messageList = Object.values(val)
         setMessages(messageList)
-        console.log(messageList)
       }
     }
     db.on('value', handleData, (error) => console.log(error))
@@ -57,6 +62,7 @@ const ViewMessagesScreen = ({ navigation, route }) => {
       <View>
         <RenderMessages messages={messages}></RenderMessages>
       </View>
+      <Button title="New Message"></Button>
 
       <StatusBar style="auto" />
     </View>
