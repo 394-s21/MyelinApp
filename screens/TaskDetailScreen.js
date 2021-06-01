@@ -1,9 +1,39 @@
 import React from 'react'
 import { Text, View, StyleSheet, Linking, Button } from 'react-native'
+import { firebase } from '../firebase'
 
 const TaskDetailScreen = ({ navigation, route }) => {
   const task = route.params.task
   const thisUser = route.params.thisUser
+  const userId = thisUser.id
+
+  async function handleComplete(wantToMarkComplete) {
+    const newTask = {...task};
+
+    newTask.status = wantToMarkComplete ? "Complete" : "Incomplete"
+
+    firebase
+      .database()
+      .ref(`users/${userId}/tasks/${task.id}`)
+      .set(newTask)
+      .catch((error) => {
+        setSubmitError(error.message)
+      })
+
+    navigation.navigate('MainTasksScreen', {thisUser})
+  }
+
+  async function handleDelete() {
+    firebase
+      .database()
+      .ref(`users/${userId}/tasks/${task.id}`)
+      .remove()
+      .catch((error) => {
+        setSubmitError(error.message)
+      })
+
+    navigation.navigate('MainTasksScreen', {thisUser})
+  }
 
   // handle comments & notif later
   return (
@@ -24,12 +54,35 @@ const TaskDetailScreen = ({ navigation, route }) => {
       )}
 
       <View style={styles.statusContainer}>
-        <Text style={styles.incompleteStatus}>{task.status}</Text>
+        <Text style={task.status==="Complete" ? styles.completeStatus : styles.incompleteStatus}>{task.status}</Text>
       </View>
       <Button
         title="Edit Task"
         onPress={() =>
           navigation.navigate('EditTaskScreen', { task, thisUser })
+        }
+      />
+      {task.status === "Complete" ? 
+      <Button
+        title="Mark Task as Incomplete"
+        onPress={() =>
+          // Mark as complete in firebase
+          handleComplete(false)
+        }
+      /> : 
+      <Button
+        title="Complete Task"
+        onPress={() =>
+          // Mark as complete in firebase
+          handleComplete(true)
+        }
+      />}
+      
+      <Button
+        title="Delete Task"
+        onPress={() =>
+          // Delete in firebase
+          handleDelete()
         }
       />
     </View>
