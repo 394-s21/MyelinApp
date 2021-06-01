@@ -8,9 +8,9 @@ const TaskDetailScreen = ({ navigation, route }) => {
   const userId = thisUser.id
 
   async function handleComplete(wantToMarkComplete) {
-    const newTask = {...task};
+    const newTask = { ...task }
 
-    newTask.status = wantToMarkComplete ? "Complete" : "Incomplete"
+    newTask.status = wantToMarkComplete ? 'Complete' : 'Incomplete'
 
     firebase
       .database()
@@ -20,7 +20,7 @@ const TaskDetailScreen = ({ navigation, route }) => {
         setSubmitError(error.message)
       })
 
-    navigation.navigate('MainTasksScreen', {thisUser})
+    navigation.navigate('MainTasksScreen', { thisUser })
   }
 
   async function handleDelete() {
@@ -32,7 +32,7 @@ const TaskDetailScreen = ({ navigation, route }) => {
         setSubmitError(error.message)
       })
 
-    navigation.navigate('MainTasksScreen', {thisUser})
+    navigation.navigate('MainTasksScreen', { thisUser })
   }
 
   // handle comments & notif later
@@ -54,7 +54,15 @@ const TaskDetailScreen = ({ navigation, route }) => {
       )}
 
       <View style={styles.statusContainer}>
-        <Text style={task.status==="Complete" ? styles.completeStatus : styles.incompleteStatus}>{task.status}</Text>
+        <Text
+          style={
+            task.status === 'Complete'
+              ? styles.completeStatus
+              : styles.incompleteStatus
+          }
+        >
+          {task.status}
+        </Text>
       </View>
       <Button
         title="Edit Task"
@@ -63,28 +71,30 @@ const TaskDetailScreen = ({ navigation, route }) => {
         }
       />
       <Button
-      title="View Messages"
-      onPress={() =>
-        navigation.navigate('ViewMessagesScreen', { task, thisUser })
-      }
+        title="View Messages"
+        onPress={() =>
+          navigation.navigate('ViewMessagesScreen', { task, thisUser })
+        }
       />
 
-      {task.status === "Complete" ? 
-      <Button
-        title="Mark Task as Incomplete"
-        onPress={() =>
-          // Mark as complete in firebase
-          handleComplete(false)
-        }
-      /> : 
-      <Button
-        title="Complete Task"
-        onPress={() =>
-          // Mark as complete in firebase
-          handleComplete(true)
-        }
-      />}
-      
+      {task.status === 'Complete' ? (
+        <Button
+          title="Mark Task as Incomplete"
+          onPress={() =>
+            // Mark as complete in firebase
+            handleComplete(false)
+          }
+        />
+      ) : (
+        <Button
+          title="Complete Task"
+          onPress={() =>
+            // Mark as complete in firebase
+            handleComplete(true)
+          }
+        />
+      )}
+
       <Button
         title="Delete Task"
         onPress={() =>

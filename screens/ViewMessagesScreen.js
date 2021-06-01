@@ -1,72 +1,67 @@
-import React, {useEffect, useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import {
   StatusBar,
   StyleSheet,
   Text,
   View,
   TouchableOpacity,
-  ScrollView
+  ScrollView,
 } from 'react-native'
 import { firebase } from '../firebase'
 
 const MessageField = ({ message }) => {
-    return (
-      <View style={styles.fieldContainer}>
-        <Text style={styles.fieldText}>{message}</Text>
-        {/* <Text style={styles.field}>{value}</Text> */}
-      </View>
-    )
-  }
-  
-  
-const RenderMessages = (messages) => {
-    return (
-      <ScrollView>
-        {Object.values(messages)[0].map((message) => (
-          <MessageField message={message} />
-        ))}
-      </ScrollView>
-    )
-  }
+  return (
+    <View style={styles.fieldContainer}>
+      <Text style={styles.fieldText}>{message}</Text>
+      {/* <Text style={styles.field}>{value}</Text> */}
+    </View>
+  )
+}
 
-  
+const RenderMessages = (messages) => {
+  return (
+    <ScrollView>
+      {Object.values(messages)[0].map((message) => (
+        <MessageField message={message} />
+      ))}
+    </ScrollView>
+  )
+}
 
 // View message screen
 const ViewMessagesScreen = ({ navigation, route }) => {
+  const task = route.params.task
+  const thisUser = route.params.thisUser
+  const userId = thisUser.id
 
-    const task = route.params.task
-    const thisUser = route.params.thisUser
-    const userId = thisUser.id
-  
-    const [messages, setMessages] = useState([])
+  const [messages, setMessages] = useState([])
 
-
-    useEffect(() => {
-        const db = firebase.database().ref(`users/${userId}/tasks/${task.id}/comments`)
-        const handleData = (snap) => {
-          if (snap.val()) {
-            const val = snap.val()
-            const messageList = Object.values(val)
-            setMessages(messageList)
-            console.log(messageList)
-          }
-        }
-        db.on('value', handleData, (error) => console.log(error))
-        return () => db.off('value', handleData)
-      }, [])
+  useEffect(() => {
+    const db = firebase
+      .database()
+      .ref(`users/${userId}/tasks/${task.id}/comments`)
+    const handleData = (snap) => {
+      if (snap.val()) {
+        const val = snap.val()
+        const messageList = Object.values(val)
+        setMessages(messageList)
+        console.log(messageList)
+      }
+    }
+    db.on('value', handleData, (error) => console.log(error))
+    return () => db.off('value', handleData)
+  }, [])
 
   return (
     <View style={styles.container}>
-     
       <View>
-            <RenderMessages messages={messages}></RenderMessages>
+        <RenderMessages messages={messages}></RenderMessages>
       </View>
 
       <StatusBar style="auto" />
     </View>
   )
 }
-
 
 const styles = StyleSheet.create({
   container: {
@@ -82,10 +77,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   fieldContainer: {
-      borderWidth: 1,
-      borderRadius: 5,
-      padding: 15,
-      margin: 5,
+    borderWidth: 1,
+    borderRadius: 5,
+    padding: 15,
+    margin: 5,
   },
   fieldText: {
     marginBottom: 10,

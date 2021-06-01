@@ -1,12 +1,20 @@
 import React from 'react'
-import { View, Text, StyleSheet, TouchableOpacity, PickerIOSComponent } from 'react-native'
+import {
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  PickerIOSComponent,
+} from 'react-native'
 
 // TODO (L11): conditional styling?
 
 const Task = ({ task, view }) => {
   return (
     <TouchableOpacity onPress={() => view(task)}>
-      <View style={task.status === "Complete" ? styles.complete : styles.container}>
+      <View
+        style={task.status === 'Complete' ? styles.complete : styles.container}
+      >
         <View style={styles.textView}>
           <Text style={styles.title}>{task.title}</Text>
           <Text style={styles.dateDue}>Due: {task.dateDue}</Text>
@@ -47,7 +55,7 @@ const styles = StyleSheet.create({
   },
   complete: {
     ...containerStyle,
-    backgroundColor: "gray",
+    backgroundColor: 'gray',
   },
   title: {
     ...row,
