@@ -62,6 +62,13 @@ const TaskDetailScreen = ({ navigation, route }) => {
           navigation.navigate('EditTaskScreen', { task, thisUser })
         }
       />
+      <Button
+      title="View Messages"
+      onPress={() =>
+        navigation.navigate('ViewMessagesScreen', { task, thisUser })
+      }
+      />
+
       {task.status === "Complete" ? 
       <Button
         title="Mark Task as Incomplete"

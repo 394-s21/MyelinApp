@@ -8,6 +8,7 @@ import CreateTaskScreen from './screens/CreateTaskScreen'
 import ViewPatientsScreen from './screens/ViewPatientsScreen'
 import PrebuiltTaskScreen from './screens/PrebuiltTaskScreen'
 import EditTaskScreen from './screens/EditTaskScreen'
+import ViewMessagesScreen from './screens/ViewMessagesScreen'
 
 const Stack = createStackNavigator()
 
@@ -53,6 +54,11 @@ export default function App() {
           name="TaskDetailScreen"
           component={TaskDetailScreen}
           options={{ title: 'Task Details' }}
+        />
+        <Stack.Screen
+          name="ViewMessagesScreen"
+          component={ViewMessagesScreen}
+          options={{ title: 'View Messages' }}
         />
         <Stack.Screen
           name="EditTaskScreen"
