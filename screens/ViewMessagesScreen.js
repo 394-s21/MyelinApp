@@ -4,7 +4,6 @@ import {
   StyleSheet,
   Text,
   View,
-  TouchableOpacity,
   ScrollView,
   Button,
 } from 'react-native'
@@ -19,14 +18,13 @@ const MessageField = ({ message }) => {
   )
 }
 
-const RenderMessages = (messages) => {
-  const msgs = Object.values(messages)[0]
+const RenderMessages = ({ messages }) => {
   return (
     <ScrollView>
-      {msgs.length > 1 ? (
-        msgs
-          .slice(1)
-          .map((message, idx) => <MessageField key={idx} message={message} />)
+      {messages.length > 0 ? (
+        messages.map((message, idx) => (
+          <MessageField key={idx} message={message} />
+        ))
       ) : (
         <MessageField message={'No messages.'} />
       )}
@@ -62,7 +60,15 @@ const ViewMessagesScreen = ({ navigation, route }) => {
       <View>
         <RenderMessages messages={messages}></RenderMessages>
       </View>
-      <Button title="New Message"></Button>
+      <Button
+        title="New Message"
+        onPress={() =>
+          navigation.navigate('CreateMessageScreen', {
+            user: thisUser,
+            task: task,
+          })
+        }
+      ></Button>
 
       <StatusBar style="auto" />
     </View>
