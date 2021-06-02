@@ -26,7 +26,7 @@ const LogoutButton = ({ navigation }) => (
       onPress={() => {
         firebase.auth().signOut()
         navigation.navigate('AppViewScreen')
-        alert('Successfully logged out!')
+        // alert('Successfully logged out!')
       }}
     />
   </View>

@@ -76,50 +76,36 @@ const TaskDetailScreen = ({ navigation, route }) => {
           navigation.navigate('ViewMessagesScreen', { task, thisUser })
         }
       />
+      {/* <View style={styles.tempContainer}> */}
+        {task.status === 'Complete' ? (
+          // <View style={styles.bottomButtonContainer}>
+            <TouchableOpacity 
+              style={styles.completeButton} 
+              onPress={() => handleComplete(false)}
+            >
+              <Text style={styles.completeButtonText}>Mark Task As Incomplete</Text>
+            </TouchableOpacity>
+          // {/* </View> */}
+        ) : (
+          // <View style={styles.bottomButtonContainer}>
+            <TouchableOpacity 
+              style={styles.completeButton} 
+              onPress={() => handleComplete(true)}
+            >
+              <Text style={styles.completeButtonText}>Mark Task As Complete</Text>
+            </TouchableOpacity>
+          // </View>
+        )}
 
-      {task.status === 'Complete' ? (
-        // <Button
-        //   title="Mark Task As Incomplete"
-        //   onPress={() =>
-        //     // Mark as complete in firebase
-        //     handleComplete(false)
-        //   }
-        // />
-        <TouchableOpacity 
-          style={styles.deleteButton} 
-          onPress={() => handleComplete(false)}
-        >
-          <Text style={styles.deleteButtonText}>Mark Task As Incomplete</Text>
-        </TouchableOpacity>
-      ) : (
-        // <Button
-        //   title="Mark Task As Complete"
-        //   onPress={() =>
-        //     // Mark as complete in firebase
-        //     handleComplete(true)
-        //   }
-        // />
-        <TouchableOpacity 
-          style={styles.completeButton} 
-          onPress={() => handleComplete(true)}
-        >
-          <Text style={styles.completeButtonText}>Mark Task As Complete</Text>
-        </TouchableOpacity>
-      )}
-
-      {/* <Button
-        title="Delete Task"
-        onPress={() =>
-          // Delete in firebase
-          handleDelete()
-        }
-      /> */}
-      <TouchableOpacity 
-        style={styles.deleteButton} 
-        onPress={() => handleDelete()}
-      >
-        <Text style={styles.deleteButtonText}>Delete Task</Text>
-      </TouchableOpacity>
+        {/* <View style={styles.bottomButtonContainer}> */}
+          <TouchableOpacity 
+            style={styles.deleteButton} 
+            onPress={() => handleDelete()}
+          >
+            <Text style={styles.deleteButtonText}>Delete Task</Text>
+          </TouchableOpacity>
+        {/* </View> */}
+      {/* </View> */}
     </View>
   )
 }
@@ -172,19 +158,29 @@ const styles = StyleSheet.create({
   owner: {
     marginBottom: 30,
   },
+  tempContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    width: '70%', 
+    maxWidth: 800,
+  }, 
+  bottomButtonContainer: {
+    flex: 1,
+    flexDirection: 'row',
+  },
   completeButton: {
-    backgroundColor: 'green',
+    backgroundColor: 'white',
     textAlign: 'center',
     shadowOffset: { width: 1, height: 1 },
     shadowColor: 'black',
     shadowOpacity: 1.0,
     padding: 10,
     margin: 10,
-    width: '70%',
-    maxWidth: 800,
+    // width: '70%',
+    height: 40,
   },
   completeButtonText: {
-    color: 'white',
+    color: 'black',
     fontSize: 18,
   },
   deleteButton: {
@@ -195,8 +191,9 @@ const styles = StyleSheet.create({
     shadowOpacity: 1.0,
     padding: 10,
     margin: 10,
-    width: '70%', // change to 60 or 65?
+    // width: '70%', // change to 60 or 65?
     maxWidth: 800,
+    height: 40,
   },
   deleteButtonText: {
     color: 'white',

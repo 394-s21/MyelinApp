@@ -120,7 +120,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#ccccb3',
+    backgroundColor: 'white',//'#ccccb3',
   },
   field: {
     height: 40,
