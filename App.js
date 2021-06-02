@@ -72,6 +72,7 @@ export default function App() {
           },
           headerTitleContainerStyle: {
             left: 0,
+            right: 0,
           },
           headerRight: ({}) => (
             user
