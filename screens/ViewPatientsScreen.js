@@ -5,10 +5,12 @@ import { firebase } from '../firebase'
 
 const ViewPatientsScreen = ({ navigation }) => {
   const view = (user) => {
-    navigation.navigate('MainTasksScreen', { user: user })
+    navigation.navigate('MainTasksScreen', { user: user, role: roles })
   }
 
   const [userList, setUserList] = useState([])
+
+  const [roles, setUserRole] = useState('careTeam')
 
   useEffect(() => {
     const db = firebase.database().ref('users')

@@ -31,7 +31,7 @@ const RegisterScreen = ({ route, navigation }) => {
       ? 
       navigation.navigate('ViewPatientsScreen') // Care team goes here
       :
-      navigation.navigate('MainTasksScreen', {user: {id: 'Chris'}}) // Patients/caregiver goes here
+      navigation.navigate('MainTasksScreen', {user: {id: 'Chris'}, role: 'patient'}) // Patients/caregiver goes here
                                                                     // (Temporarily) always navigate to Chris's account
     } catch (error) {
       setSignInError(error.message)
@@ -39,7 +39,7 @@ const RegisterScreen = ({ route, navigation }) => {
   }
 
   async function handleOnSignUp(values) {
-    const { name, email, password } = values
+    const { name, email, password} = values
     setSignInError(null)
     try {
       const authCredential = await firebase
