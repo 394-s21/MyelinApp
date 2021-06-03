@@ -85,26 +85,6 @@ export default function App() {
           ),
         })}
       >
-        <Stack.Screen
-          name="ViewPatientsScreen"
-          component={ViewPatientsScreen}
-          options={{ title: 'Your Patients' }}
-        /> 
-        <Stack.Screen
-          name="MainTasksScreen"
-          component={MainTasksScreen}
-          options={{ title: 'Main Tasks' }}
-        />
-        <Stack.Screen
-          name="AppViewScreen"
-          component={AppViewScreen}
-          options={{ title: 'Choose App View' }}
-        />
-        <Stack.Screen
-          name="RegisterScreen"
-          component={RegisterScreen}
-          options={{ title: 'Register' }}
-        />
         {/* <Stack.Screen
           name="ViewPatientsScreen"
           component={ViewPatientsScreen}
@@ -115,6 +95,26 @@ export default function App() {
           component={MainTasksScreen}
           options={{ title: 'Main Tasks' }}
         /> */}
+        <Stack.Screen
+          name="AppViewScreen"
+          component={AppViewScreen}
+          options={{ title: 'Choose App View' }}
+        />
+        <Stack.Screen
+          name="RegisterScreen"
+          component={RegisterScreen}
+          options={{ title: 'Register' }}
+        />
+        <Stack.Screen
+          name="ViewPatientsScreen"
+          component={ViewPatientsScreen}
+          options={{ title: 'Your Patients' }}
+        /> 
+        <Stack.Screen
+          name="MainTasksScreen"
+          component={MainTasksScreen}
+          options={{ title: 'Main Tasks' }}
+        />
         <Stack.Screen
           name="PrebuiltTaskScreen"
           component={PrebuiltTaskScreen}

@@ -4,7 +4,7 @@ import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 const PrebuiltTask = ({ prebuiltTask, view }) => (
   <View style={styles.buttonContainer}>
     <TouchableOpacity style={{ height: 60 }} onPress={() => view(prebuiltTask)}>
-      <View style={styles.container}>
+      <View style={[styles.container, {textAlign: 'center'}]}>
         <Text style={styles.title}>{prebuiltTask.title}</Text>
       </View>
     </TouchableOpacity>
@@ -23,10 +23,11 @@ const styles = StyleSheet.create({
     maxWidth: 700,
   },
   container: {
-    display: 'flex',
-    flexDirection: 'row',
+    flex: 1,
+    //flexDirection: 'row',
     backgroundColor: '#fff',
-    alignItems: 'flex-start',
+    //alignItems: 'center',
+    justifyContent: 'center',
     marginTop: 20,
     paddingTop: 5,
     paddingBottom: 5,

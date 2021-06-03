@@ -22,12 +22,12 @@ const PrebuiltTaskScreen = ({ navigation, route }) => {
       >
         <Text style={styles.title}>Create Blank Task</Text>
       </TouchableOpacity>
-      <View style={styles.container}>
-        {PrebuiltTaskArray.tasks.map((prebuiltTask, idx) => (
-          <PrebuiltTask key={idx} prebuiltTask={prebuiltTask} view={view} />
-        ))}
-      </View>
+    <View style={styles.container2}>
+      {PrebuiltTaskArray.tasks.map((prebuiltTask, idx) => (
+        <PrebuiltTask key={idx} prebuiltTask={prebuiltTask} view={view} />
+      ))}
     </View>
+  </View>
   )
 }
 
@@ -36,6 +36,11 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     marginTop: 10,
+  },
+  container2: {
+    width: '85%',
+    alignItems: 'center',
+    maxWidth: 800,
   },
   newTaskButton: {
     borderWidth: 1,
