@@ -64,51 +64,70 @@ const TaskDetailScreen = ({ navigation, route }) => {
           {task.status}
         </Text>
       </View>
-      <Button
-        title="Edit Task"
+
+      <TouchableOpacity 
+        style={styles.lightPurpleButtonColor} 
         onPress={() =>
           navigation.navigate('EditTaskScreen', { task, thisUser })
         }
-      />
-      <Button
-        title="View Message Board"
+      >
+        <Text style={styles.blackButtonText}>Edit Task</Text>
+      </TouchableOpacity>
+      <TouchableOpacity 
+        style={styles.lightPurpleButtonColor} 
         onPress={() =>
           navigation.navigate('ViewMessagesScreen', { task, thisUser })
         }
-      />
+      >
+        <Text style={styles.blackButtonText}>View Message Board</Text>
+      </TouchableOpacity>
       {/* <View style={styles.tempContainer}> */}
         {task.status === 'Complete' ? (
           // <View style={styles.bottomButtonContainer}>
             <TouchableOpacity 
-              style={styles.completeButton} 
+              style={styles.whiteButtonColor} 
               onPress={() => handleComplete(false)}
             >
-              <Text style={styles.completeButtonText}>Mark Task As Incomplete</Text>
+              <Text style={styles.blackButtonText}>Mark Task As Incomplete</Text>
             </TouchableOpacity>
           // {/* </View> */}
         ) : (
           // <View style={styles.bottomButtonContainer}>
             <TouchableOpacity 
-              style={styles.completeButton} 
+              style={styles.whiteButtonColor} 
               onPress={() => handleComplete(true)}
             >
-              <Text style={styles.completeButtonText}>Mark Task As Complete</Text>
+              <Text style={styles.blackButtonText}>Mark Task As Complete</Text>
             </TouchableOpacity>
           // </View>
         )}
 
         {/* <View style={styles.bottomButtonContainer}> */}
           <TouchableOpacity 
-            style={styles.deleteButton} 
+            style={styles.redButtonColor} 
             onPress={() => handleDelete()}
           >
-            <Text style={styles.deleteButtonText}>Delete Task</Text>
+            <Text style={styles.whiteButtonText}>Delete Task</Text>
           </TouchableOpacity>
         {/* </View> */}
       {/* </View> */}
     </View>
   )
 }
+
+const buttonColor = {
+  borderWidth: 1,
+  borderColor: 'black',
+  textAlign: 'center',
+  shadowOffset: { width: 1, height: 1 },
+  shadowColor: 'black',
+  shadowOpacity: 1.0,
+  padding: 10,
+  margin: 10,
+  // width: '70%', // change to 60 or 65?
+  maxWidth: 800,
+  height: 40,
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -168,34 +187,27 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
   },
-  completeButton: {
+  whiteButtonColor: {
+    ...buttonColor,
     backgroundColor: 'white',
-    textAlign: 'center',
-    shadowOffset: { width: 1, height: 1 },
-    shadowColor: 'black',
-    shadowOpacity: 1.0,
-    padding: 10,
-    margin: 10,
-    // width: '70%',
-    height: 40,
   },
-  completeButtonText: {
+  purpleButtonColor: {
+    ...buttonColor,
+    backgroundColor: 'purple',
+  },
+  lightPurpleButtonColor: {
+    ...buttonColor,
+    backgroundColor: '#c3a6ff',
+  },
+  redButtonColor: {
+    ...buttonColor,
+    backgroundColor: '#db4d4d',
+  },
+  blackButtonText: {
     color: 'black',
     fontSize: 18,
   },
-  deleteButton: {
-    backgroundColor: 'red',
-    textAlign: 'center',
-    shadowOffset: { width: 1, height: 1 },
-    shadowColor: 'black',
-    shadowOpacity: 1.0,
-    padding: 10,
-    margin: 10,
-    // width: '70%', // change to 60 or 65?
-    maxWidth: 800,
-    height: 40,
-  },
-  deleteButtonText: {
+  whiteButtonText: {
     color: 'white',
     fontSize: 18,
   },

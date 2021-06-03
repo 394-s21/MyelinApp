@@ -4,8 +4,8 @@ import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 // TODO (L11): conditional styling?
 
 const UserProfile = ({ user, view }) => (
-  <TouchableOpacity style={{ height: 60 }} onPress={() => view(user)}>
-    <View style={styles.container}>
+  <TouchableOpacity style={{ width: 350 }} onPress={() => view(user)}>
+    <View style={[styles.container, {textAlign: 'center'}]}>
       <Text style={styles.title}>{user.patientInfo.name}</Text>
     </View>
   </TouchableOpacity>
@@ -21,8 +21,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'flex-start',
-    justifyContent: 'center',
+    //alignItems: 'flex-start',
+    //justifyContent: 'center',
     marginTop: 20,
     paddingTop: 5,
     paddingBottom: 5,
