@@ -124,9 +124,10 @@ const buttonColor = {
   shadowOpacity: 1.0,
   padding: 10,
   margin: 10,
-  // width: '70%', // change to 60 or 65?
+  width: '70%', // change to 60 or 65?
   maxWidth: 800,
   height: 40,
+  justifyContent: 'center',
 };
 
 const styles = StyleSheet.create({

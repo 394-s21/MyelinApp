@@ -43,7 +43,7 @@ const CreateMessageScreen = ({ navigation, route }) => {
       {messageSent ? (
         <View>
           <Text label="Name" style={styles.name}>
-            Message succesfully posted!
+            Message successfully posted!
           </Text>
           <TouchableOpacity
             style={styles.connectButton}
@@ -118,7 +118,10 @@ const styles = StyleSheet.create({
     margin: 30,
     padding: 10,
     textAlign: 'center',
-    backgroundColor: 'lightblue',
+    backgroundColor: '#c3a6ff',
+    shadowOffset: { width: 1, height: 1 },
+    shadowColor: 'black',
+    shadowOpacity: 1.0,
   },
   connectText: {
     fontSize: 22,

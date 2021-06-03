@@ -6,6 +6,7 @@ import {
   View,
   ScrollView,
   Button,
+  TouchableOpacity,
 } from 'react-native'
 import { firebase } from '../firebase'
 
@@ -60,7 +61,7 @@ const ViewMessagesScreen = ({ navigation, route }) => {
       <View>
         <RenderMessages messages={messages}></RenderMessages>
       </View>
-      <Button
+      {/* <Button
         title="New Message"
         onPress={() =>
           navigation.navigate('CreateMessageScreen', {
@@ -68,7 +69,17 @@ const ViewMessagesScreen = ({ navigation, route }) => {
             task: task,
           })
         }
-      ></Button>
+      ></Button> */}
+      <TouchableOpacity 
+        style={styles.lightPurpleButtonColor}
+        onPress={() =>
+          navigation.navigate('CreateMessageScreen', {
+            user: thisUser,
+            task: task,
+          })}
+      >
+        <Text style={styles.blackButtonText}>New Message</Text>
+      </TouchableOpacity>
 
       <StatusBar style="auto" />
     </View>
@@ -91,8 +102,9 @@ const styles = StyleSheet.create({
   fieldContainer: {
     borderWidth: 1,
     borderRadius: 5,
-    padding: 15,
+    padding: 10,
     margin: 5,
+    justifyContent: 'center',
   },
   fieldText: {
     marginBottom: 10,
@@ -111,6 +123,25 @@ const styles = StyleSheet.create({
     fontSize: 20,
     color: 'ghostwhite',
     textAlign: 'center',
+  },
+  lightPurpleButtonColor: {
+    borderWidth: 1,
+    borderColor: 'black',
+    textAlign: 'center',
+    shadowOffset: { width: 1, height: 1 },
+    shadowColor: 'black',
+    shadowOpacity: 1.0,
+    padding: 10,
+    margin: 10,
+    width: '70%', // change to 60 or 65?
+    maxWidth: 800,
+    height: 40,
+    backgroundColor: '#c3a6ff',
+    justifyContent: 'center',
+  },
+  blackButtonText: {
+    color: 'black',
+    fontSize: 18,
   },
 })
 

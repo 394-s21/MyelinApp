@@ -2,11 +2,13 @@ import React from 'react'
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 
 const PrebuiltTask = ({ prebuiltTask, view }) => (
-  <TouchableOpacity style={{ height: 60 }} onPress={() => view(prebuiltTask)}>
-    <View style={styles.container}>
-      <Text style={styles.title}>{prebuiltTask.title}</Text>
+  <View style={styles.buttonContainer}>
+    <TouchableOpacity style={{ height: 60 }} onPress={() => view(prebuiltTask)}>
+      <View style={styles.container}>
+        <Text style={styles.title}>{prebuiltTask.title}</Text>
+      </View>
+    </TouchableOpacity>
     </View>
-  </TouchableOpacity>
 )
 
 const row = {
@@ -16,6 +18,10 @@ const row = {
 }
 
 const styles = StyleSheet.create({
+  buttonContainer: {
+    width: '70%',
+    maxWidth: 700,
+  },
   container: {
     display: 'flex',
     flexDirection: 'row',
