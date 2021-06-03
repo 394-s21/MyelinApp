@@ -100,7 +100,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#c3a6ff',
     textAlign: 'center',
     padding: 5,
-    shadowOffset: { width: 2, height: 2 },
+    shadowOffset: { width: 1, height: 1 },
     shadowColor: 'black',
     shadowOpacity: 1.0,
   },

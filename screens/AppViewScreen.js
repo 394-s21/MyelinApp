@@ -75,16 +75,19 @@ const styles = StyleSheet.create({
     marginBottom: 15,
   },
   roleButton: {
-    backgroundColor: '#2196F3',
+    backgroundColor: '#c3a6ff',
     fontSize: 16,
     margin: 15,
     width: 250,
     padding: 15,
     textAlign: 'center',
+    shadowOffset: { width: 1, height: 1 },
+    shadowColor: 'black',
+    shadowOpacity: 1.0,
   },
   buttonText: {
     fontSize: 20,
-    color: 'ghostwhite',
+    color: 'black', //'ghostwhite',
     textAlign: 'center',
   },
 })
