@@ -37,6 +37,7 @@ const styles = StyleSheet.create({
   title: {
     ...row,
     fontWeight: '500',
+    fontSize:24
   },
   dateDue: {
     ...row,
