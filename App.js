@@ -63,7 +63,7 @@ export default function App() {
     <UserContext.Provider value={user}>
     <NavigationContainer>
       <Stack.Navigator
-        screenOptions={{
+        screenOptions={({ navigation }) => ({
           headerStyle: {
             backgroundColor: '#610f94', // some purple color lol
           },
@@ -75,8 +75,15 @@ export default function App() {
           headerTitleContainerStyle: {
             left: 0,
             right: 0,
-          }
-        }}
+          },
+          headerRight: ({}) => (
+            user
+            ?
+            <LogoutButton navigation={navigation} />
+            :
+            <Text />
+          ),
+        })}
       >
         {/* <Stack.Screen
           name="ViewPatientsScreen"
@@ -101,114 +108,42 @@ export default function App() {
         <Stack.Screen
           name="ViewPatientsScreen"
           component={ViewPatientsScreen}
-          options={{ 
-            title: 'Your Patients',
-            headerRight: ({}) => (
-              user
-              ?
-              <LogoutButton navigation={navigation} />
-              :
-              <Text />
-            ), 
-          }}
+          options={{ title: 'Your Patients' }}
         /> 
         <Stack.Screen
           name="MainTasksScreen"
           component={MainTasksScreen}
-          options={{ 
-            title: 'Main Tasks',
-            headerRight: ({}) => (
-              user
-              ?
-              <LogoutButton navigation={navigation} />
-              :
-              <Text />
-            ), 
-          }}
+          options={{ title: 'Main Tasks' }}
         />
         <Stack.Screen
           name="PrebuiltTaskScreen"
           component={PrebuiltTaskScreen}
-          options={{ 
-            title: 'Choose from Pre-Created Tasks',
-            headerRight: ({}) => (
-              user
-              ?
-              <LogoutButton navigation={navigation} />
-              :
-              <Text />
-            ), 
-          }}
+          options={{ title: 'Choose from Pre-Created Tasks' }}
         />
         <Stack.Screen
           name="CreateTaskScreen"
           component={CreateTaskScreen}
-          options={{ 
-            title: 'Create New Task',
-            headerRight: ({}) => (
-              user
-              ?
-              <LogoutButton navigation={navigation} />
-              :
-              <Text />
-            ), 
-          }}
+          options={{ title: 'Create New Task' }}
         />
         <Stack.Screen
           name="TaskDetailScreen"
           component={TaskDetailScreen}
-          options={{ 
-            title: 'Task Details',
-            headerRight: ({}) => (
-              user
-              ?
-              <LogoutButton navigation={navigation} />
-              :
-              <Text />
-            ), 
-          }}
+          options={{ title: 'Task Details' }}
         />
         <Stack.Screen
           name="ViewMessagesScreen"
           component={ViewMessagesScreen}
-          options={{ 
-            title: 'View Messages',
-            headerRight: ({}) => (
-              user
-              ?
-              <LogoutButton navigation={navigation} />
-              :
-              <Text />
-            ), 
-          }}
+          options={{ title: 'View Messages' }}
         />
         <Stack.Screen
           name="EditTaskScreen"
           component={EditTaskScreen}
-          options={{ 
-            title: 'Edit Task',
-            headerRight: ({}) => (
-              user
-              ?
-              <LogoutButton navigation={navigation} />
-              :
-              <Text />
-            ), 
-          }}
+          options={{ title: 'Edit Task' }}
         />
         <Stack.Screen
           name="CreateMessageScreen"
           component={CreateMessageScreen}
-          options={{ 
-            title: 'New Message',
-            headerRight: ({}) => (
-              user
-              ?
-              <LogoutButton navigation={navigation} />
-              :
-              <Text />
-            ), 
-          }}
+          options={{ title: 'New message' }}
         />
       </Stack.Navigator>
     </NavigationContainer>
