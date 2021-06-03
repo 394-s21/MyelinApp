@@ -15,11 +15,10 @@ const CreateTaskScreen = ({ navigation, route }) => {
 
   // Update the 'newTask' variable based on user input
   async function handleSubmit(values) {
-    const date = Date()
     const newTask = {
       ...values,
-      dateCreated: date,
-      dateModified: date,
+      dateCreated: parseDateCreated(),
+      dateModified: parseDateCreated(),
       status: 'Incomplete',
       owner: userId,
     }
@@ -31,6 +30,17 @@ const CreateTaskScreen = ({ navigation, route }) => {
       .catch((error) => {
         setSubmitError(error.message)
       })
+  }
+
+  // Parse date from long string to standard mm/dd/yy format
+  const parseDateCreated = () => {
+    const date = new Date()
+    const month = date.getMonth() + 1
+    const day = date.getDate()
+    const year = date.getYear() - 100
+
+    const dateString = month + "/" + day + "/" + year
+    return dateString
   }
 
   return !submitted ? (

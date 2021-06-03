@@ -57,8 +57,8 @@ const TaskDetailScreen = ({ navigation, route }) => {
         <Text
           style={
             task.status === 'Complete'
-              ? styles.completeStatus
-              : styles.incompleteStatus
+              ? [styles.greenStatusText, {fontWeight: 'bold'}]
+              : [styles.redStatusText, {fontWeight: 'bold'}]
           }
         >
           {task.status}
@@ -88,7 +88,7 @@ const TaskDetailScreen = ({ navigation, route }) => {
               style={styles.whiteButtonColor} 
               onPress={() => handleComplete(false)}
             >
-              <Text style={styles.blackButtonText}>Mark Task As Incomplete</Text>
+              <Text style={styles.redStatusText}>Mark Task As Incomplete</Text>
             </TouchableOpacity>
           // {/* </View> */}
         ) : (
@@ -97,7 +97,7 @@ const TaskDetailScreen = ({ navigation, route }) => {
               style={styles.whiteButtonColor} 
               onPress={() => handleComplete(true)}
             >
-              <Text style={styles.blackButtonText}>Mark Task As Complete</Text>
+              <Text style={styles.greenStatusText}>Mark Task As Complete</Text>
             </TouchableOpacity>
           // </View>
         )}
@@ -164,16 +164,6 @@ const styles = StyleSheet.create({
     fontStyle: 'italic',
     marginBottom: 5,
   },
-  incompleteStatus: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    color: 'red',
-  },
-  completeStatus: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    color: 'green',
-  },
   owner: {
     marginBottom: 30,
   },
@@ -202,6 +192,14 @@ const styles = StyleSheet.create({
   redButtonColor: {
     ...buttonColor,
     backgroundColor: '#db4d4d',
+  },
+  redStatusText: {
+    fontSize: 16,
+    color: 'red',
+  },
+  greenStatusText: {
+    fontSize: 16,
+    color: 'green',
   },
   blackButtonText: {
     color: 'black',

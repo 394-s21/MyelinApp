@@ -41,7 +41,7 @@ const MainTasksScreen = ({ navigation, route }) => {
         onPress={() => navigation.navigate('PrebuiltTaskScreen', { thisUser })}
         style={styles.newTaskButton}
       >
-        <Text style={styles.title}>Create new task</Text>
+        <Text style={styles.title}>Create a New Task!</Text>
       </TouchableOpacity>
       <TaskList tasks={thisUser.taskList} view={view} />
     </View>

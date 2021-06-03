@@ -23,7 +23,7 @@ const LogoutButton = ({ navigation }) => (
   <View style={{marginRight: 10}}>
      <Button
       title="Logout"
-      color="red"
+      color="#db4d4d"
       onPress={() => {
         firebase.auth().signOut()
         navigation.navigate('AppViewScreen')
@@ -85,7 +85,7 @@ export default function App() {
           ),
         })}
       >
-        {/* <Stack.Screen
+        <Stack.Screen
           name="ViewPatientsScreen"
           component={ViewPatientsScreen}
           options={{ title: 'Your Patients' }}
@@ -94,7 +94,7 @@ export default function App() {
           name="MainTasksScreen"
           component={MainTasksScreen}
           options={{ title: 'Main Tasks' }}
-        /> */}
+        />
         <Stack.Screen
           name="AppViewScreen"
           component={AppViewScreen}
@@ -105,7 +105,7 @@ export default function App() {
           component={RegisterScreen}
           options={{ title: 'Register' }}
         />
-        <Stack.Screen
+        {/* <Stack.Screen
           name="ViewPatientsScreen"
           component={ViewPatientsScreen}
           options={{ title: 'Your Patients' }}
@@ -114,7 +114,7 @@ export default function App() {
           name="MainTasksScreen"
           component={MainTasksScreen}
           options={{ title: 'Main Tasks' }}
-        />
+        /> */}
         <Stack.Screen
           name="PrebuiltTaskScreen"
           component={PrebuiltTaskScreen}
