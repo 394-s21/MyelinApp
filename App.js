@@ -13,6 +13,7 @@ import CreateMessageScreen from './screens/CreateMessageScreen'
 import AppViewScreen from './screens/AppViewScreen'
 import RegisterScreen from './screens/RegisterScreen'
 import { firebase } from './firebase'
+import UserContext from './UserContext'
 
 
 const Stack = createStackNavigator()
@@ -59,6 +60,7 @@ export default function App() {
   }, [])
 
   return (
+    <UserContext.Provider value={user}>
     <NavigationContainer>
       <Stack.Navigator
         screenOptions={({ navigation }) => ({
@@ -135,6 +137,7 @@ export default function App() {
         />
       </Stack.Navigator>
     </NavigationContainer>
+    </UserContext.Provider>
   )
 }
 
