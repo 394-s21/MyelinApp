@@ -63,7 +63,7 @@ export default function App() {
     <UserContext.Provider value={user}>
     <NavigationContainer>
       <Stack.Navigator
-        screenOptions={({ navigation }) => ({
+        screenOptions={{
           headerStyle: {
             backgroundColor: '#610f94', // some purple color lol
           },
@@ -75,15 +75,8 @@ export default function App() {
           headerTitleContainerStyle: {
             left: 0,
             right: 0,
-          },
-          headerRight: ({}) => (
-            user
-            ?
-            <LogoutButton navigation={navigation} />
-            :
-            <Text />
-          ),
-        })}
+          }
+        }}
       >
         {/* <Stack.Screen
           name="ViewPatientsScreen"
@@ -108,42 +101,114 @@ export default function App() {
         <Stack.Screen
           name="ViewPatientsScreen"
           component={ViewPatientsScreen}
-          options={{ title: 'Your Patients' }}
+          options={{ 
+            title: 'Your Patients',
+            headerRight: ({}) => (
+              user
+              ?
+              <LogoutButton navigation={navigation} />
+              :
+              <Text />
+            ), 
+          }}
         /> 
         <Stack.Screen
           name="MainTasksScreen"
           component={MainTasksScreen}
-          options={{ title: 'Main Tasks' }}
+          options={{ 
+            title: 'Main Tasks',
+            headerRight: ({}) => (
+              user
+              ?
+              <LogoutButton navigation={navigation} />
+              :
+              <Text />
+            ), 
+          }}
         />
         <Stack.Screen
           name="PrebuiltTaskScreen"
           component={PrebuiltTaskScreen}
-          options={{ title: 'Choose from Pre-Created Tasks' }}
+          options={{ 
+            title: 'Choose from Pre-Created Tasks',
+            headerRight: ({}) => (
+              user
+              ?
+              <LogoutButton navigation={navigation} />
+              :
+              <Text />
+            ), 
+          }}
         />
         <Stack.Screen
           name="CreateTaskScreen"
           component={CreateTaskScreen}
-          options={{ title: 'Create New Task' }}
+          options={{ 
+            title: 'Create New Task',
+            headerRight: ({}) => (
+              user
+              ?
+              <LogoutButton navigation={navigation} />
+              :
+              <Text />
+            ), 
+          }}
         />
         <Stack.Screen
           name="TaskDetailScreen"
           component={TaskDetailScreen}
-          options={{ title: 'Task Details' }}
+          options={{ 
+            title: 'Task Details',
+            headerRight: ({}) => (
+              user
+              ?
+              <LogoutButton navigation={navigation} />
+              :
+              <Text />
+            ), 
+          }}
         />
         <Stack.Screen
           name="ViewMessagesScreen"
           component={ViewMessagesScreen}
-          options={{ title: 'View Messages' }}
+          options={{ 
+            title: 'View Messages',
+            headerRight: ({}) => (
+              user
+              ?
+              <LogoutButton navigation={navigation} />
+              :
+              <Text />
+            ), 
+          }}
         />
         <Stack.Screen
           name="EditTaskScreen"
           component={EditTaskScreen}
-          options={{ title: 'Edit Task' }}
+          options={{ 
+            title: 'Edit Task',
+            headerRight: ({}) => (
+              user
+              ?
+              <LogoutButton navigation={navigation} />
+              :
+              <Text />
+            ), 
+          }}
         />
         <Stack.Screen
           name="CreateMessageScreen"
           component={CreateMessageScreen}
-          options={{ title: 'New message' }}
+          options={{ 
+            title: 'New Message',
+            headerRight: ({}) => (
+              user
+              ?
+              <LogoutButton navigation={navigation} />
+              :
+              <Text />
+            ), 
+          }}
         />
       </Stack.Navigator>
     </NavigationContainer>
