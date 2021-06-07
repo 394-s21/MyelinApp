@@ -12,5 +12,5 @@ jobs:
       with:
         node-version: 15
 
-    - run: npm ci --also=dev
+    - run: npm ci --also=dev --legacy-peer-deps
     - run: npm test
