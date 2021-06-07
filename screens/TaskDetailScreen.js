@@ -78,6 +78,7 @@ const TaskDetailScreen = ({ navigation, route }) => {
         onPress={() =>
           navigation.navigate('ViewMessagesScreen', { task, thisUser })
         }
+        testID="TaskDetail.ViewMessages"
       >
         <Text style={styles.blackButtonText}>View Message Board</Text>
       </TouchableOpacity>
@@ -96,6 +97,7 @@ const TaskDetailScreen = ({ navigation, route }) => {
             <TouchableOpacity 
               style={styles.whiteButtonColor} 
               onPress={() => handleComplete(true)}
+              testID="TaskDetail.Complete"
             >
               <Text style={styles.greenStatusText}>Mark Task As Complete</Text>
             </TouchableOpacity>

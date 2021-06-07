@@ -24,13 +24,32 @@ describe('<TaskDetailScreen />', () => {
 
     it('Renders correctly', async () => {
         // Fails if the props are passed incorrectly or if they have bad data.
-        const { screenTest } = render(
+        const { screenTest, getAllByText } = render(
                     <TaskDetailScreen
                         route={{params:{task: dummyTask, thisUser:dummyUser}}}
                     />
         );
-
+        // Check non-null.
         expect(screenTest).not.toBeNull()
+        // Check various text objects as given by the data.
+        expect(getAllByText('Follow up with Vascular surgery').length).toBe(1)
+        expect(getAllByText('Incomplete').length).toBe(1)
+        expect(getAllByText('Created: 05/09/2021 | Due: 05/30/2021').length).toBe(1)
+
+        
+    });
+
+    it('Moves to view message screen', async () => {
+        const navigation = {navigate: jest.fn()}
+        const { getAllByText, getByTestId } = render(
+                    <TaskDetailScreen
+                        navigation = {navigation} route={{params:{task: dummyTask, thisUser:dummyUser}}}
+                    />
+        );
+
+        // Press button, now expect navigation to be called.
+        fireEvent.press(getByTestId("TaskDetail.ViewMessages"))
+        expect(navigation.navigate).toBeCalledWith("ViewMessagesScreen", {task: dummyTask, thisUser: dummyUser})
     });
 })
 
