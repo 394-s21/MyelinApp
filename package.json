@@ -5,7 +5,7 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "test": "jest",
+    "test": "npx jest --coverage",
     "eject": "expo eject",
     "format": "npx prettier --write ./App.js ./app.json ./components ./screens ./utils ./scripts"
   },
@@ -23,6 +23,7 @@
     "react-native": "https://github.com/expo/react-native/archive/sdk-41.0.0.tar.gz",
     "react-native-gesture-handler": "~1.10.2",
     "react-native-reanimated": "~2.1.0",
+    "react-native-renderer": "^15.5.3",
     "react-native-safe-area-context": "3.2.0",
     "react-native-screens": "~3.0.0",
     "react-native-web": "^0.16.3",
@@ -37,6 +38,11 @@
     "jest": "^27.0.4"
   },
   "jest": {
+    "collectCoverage": true,
+    "coverageReporters": [
+      "json",
+      "html"
+    ],
     "preset": "react-native",
     "setupFilesAfterEnv": [
       "@testing-library/jest-native/extend-expect"
