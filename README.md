@@ -47,14 +47,14 @@ and follow the Firebase tutorials/steps for those.
 At this point, the app should build, but it does not have any data. Since we previously set up Firebase with our project, we have provided sample data to facilitate a quicker setup. We have another tutorial page [here](https://courses.cs.northwestern.edu/394/intro-react-native-firebase.php) that should help with these steps as well.
 
 1. Navigate to the Firebase console again and	select “Realtime Database” from the left menu on the project console. 
-    * Create a new database with the “test” settings (or “locked”, if you will be using private data).
-    * Under the “Data” tab, find the three dots button (they should be vertically aligned, and appear next to the + and - symbols). Click the button and then click “Import JSON”.
-    * In the MyelinMobile project folder (on your computer), find the file called “new-db-setup.json”. Select this folder and it should upload our sample data to your project. 
+    * Create a new database with the `test` settings (or `locked`, if you will be using private data).
+    * Under the `Data` tab, find the three dots button (they should be vertically aligned, and appear next to the + and - symbols). Click the button and then click `Import JSON`.
+    * In the MyelinMobile project folder (on your computer), find the file called `new-db-setup.json`. Select this folder and it should upload our sample data to your project. 
 2. Now that you have uploaded the data, we can create an App for the project. 
-   * In the top left corner of the Firebase console select “Project Overview”.
+   * In the top left corner of the Firebase console select `Project Overview`.
    * Click the + button to add app, and select the web app. Name it as you like.
-   * Now, click on the Gear button next to “Project Overview” and select the option “Project Settings”.
-   * Scroll down to the section titled “SDK Setup”, and you will notice that the configuration object (titled firebaseConfig) already exists in the file “firebase.js” in our project folder. Copy this object to the file, and you should now be able to run the app as specified above with all data loaded.
+   * Now, click on the Gear button next to `Project Overview` and select the option `Project Settings`.
+   * Scroll down to the section titled `SDK Setup`, and you will notice that the configuration object (titled `firebaseConfig`) already exists in the file `firebase.js` in our project folder. Copy this object to the file, and you should now be able to run the app as specified above with all data loaded.
 
 
 ## Team Members
