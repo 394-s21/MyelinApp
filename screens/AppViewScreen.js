@@ -27,6 +27,7 @@ const AppViewScreen = ({ navigation }) => {
             const roles = {role: 'careTeam'};
             navigation.navigate('RegisterScreen', {roles});
           }}
+          testID='AppView.CareTeam'
         >
           <Text style={styles.buttonText}>Care Team Member</Text>
         </TouchableOpacity>
