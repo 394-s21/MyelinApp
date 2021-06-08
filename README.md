@@ -28,7 +28,7 @@ The app uses Firebase for all of its information, but we removed all references 
 3. Since we previously set up Firebase with our project, we have provided sample data to facilitate a quicker setup. 
     * Select “Realtime Database” from the left menu on the project console. 
     * Under the “Data” tab, find the three dots button (they should be vertically aligned, and appear next to the + and - symbols). Click the button and then click “Import JSON”.
-    * In the MyelinMobile project folder (on your computer), find the file called “new-db-setup.json”. Select this folder and it should upload our sample data to your project.
+    * In the MyelinMobile project folder (on your computer), find the file at “utils/new-db-setup.json”. Select this folder and it should upload our sample data to your project.
 4. Since we previously installed Firebase, you will not need to install any additional packages. Instead, in your project folder, run the command `firebase init`. This should prompt you to sign in with Firebase and will then ask you a series of questions:
 
     * Select `Use existing project` and then select the project you just created from the list Firebase shows
