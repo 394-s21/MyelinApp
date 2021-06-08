@@ -39,6 +39,7 @@
   },
   "jest": {
     "collectCoverage": true,
+    "detectOpenHandles": true,
     "coverageReporters": [
       "json",
       "html"

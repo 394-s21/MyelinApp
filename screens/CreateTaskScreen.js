@@ -84,7 +84,7 @@ const CreateTaskScreen = ({ navigation, route }) => {
       <Text style={styles.h1_text}>Task successfully created!</Text>
       <TouchableOpacity
         style={styles.addTaskButton}
-        onPress={() => navigation.navigate('MainTasksScreen', { thisUser })} // Pass new task to 'MainTasksScreen.js'
+        onPress={() => navigation.navigate('MainTasksScreen', { thisUser })}
       >
         <Text style={styles.buttonText}>Return to Home Screen</Text>
       </TouchableOpacity>
@@ -146,7 +146,6 @@ const styles = StyleSheet.create({
     fontSize: 22,
     marginLeft: 'auto',
     marginRight: 'auto',
-    // fontWeight: 500,
   },
   roleButton: {
     backgroundColor: '#2196F3',

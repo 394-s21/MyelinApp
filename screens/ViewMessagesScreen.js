@@ -61,15 +61,6 @@ const ViewMessagesScreen = ({ navigation, route }) => {
       <View>
         <RenderMessages messages={messages}></RenderMessages>
       </View>
-      {/* <Button
-        title="New Message"
-        onPress={() =>
-          navigation.navigate('CreateMessageScreen', {
-            user: thisUser,
-            task: task,
-          })
-        }
-      ></Button> */}
       <TouchableOpacity 
         style={styles.lightPurpleButtonColor}
         onPress={() =>
@@ -92,7 +83,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     paddingTop: 30,
-    // justifyContent: 'center',
   },
 
   userContainer: {
@@ -133,7 +123,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 1.0,
     padding: 10,
     margin: 10,
-    width: '70%', // change to 60 or 65?
+    width: '70%',
     maxWidth: 800,
     height: 40,
     backgroundColor: '#c3a6ff',

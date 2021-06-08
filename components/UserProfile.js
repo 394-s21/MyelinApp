@@ -1,8 +1,6 @@
 import React from 'react'
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 
-// TODO (L11): conditional styling?
-
 const UserProfile = ({ user, view }) => (
   <TouchableOpacity style={{ width: 350 }} onPress={() => view(user)}>
     <View style={[styles.container, {textAlign: 'center'}]}>
@@ -21,13 +19,9 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    //alignItems: 'flex-start',
-    //justifyContent: 'center',
     marginTop: 20,
     paddingTop: 5,
     paddingBottom: 5,
-    //paddingLeft: 10,
-    //paddingRight: 75,
     width: '100%',
     height: '10%',
     borderWidth: 1,

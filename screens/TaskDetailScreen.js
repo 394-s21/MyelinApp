@@ -35,7 +35,6 @@ const TaskDetailScreen = ({ navigation, route }) => {
     navigation.navigate('MainTasksScreen', { thisUser })
   }
 
-  // handle comments & notif later
   return (
     <View style={styles.container}>
       <Text style={styles.title}>{task.title}</Text>
@@ -82,18 +81,14 @@ const TaskDetailScreen = ({ navigation, route }) => {
       >
         <Text style={styles.blackButtonText}>View Message Board</Text>
       </TouchableOpacity>
-      {/* <View style={styles.tempContainer}> */}
         {task.status === 'Complete' ? (
-          // <View style={styles.bottomButtonContainer}>
             <TouchableOpacity 
               style={styles.whiteButtonColor} 
               onPress={() => handleComplete(false)}
             >
               <Text style={styles.redStatusText}>Mark Task As Incomplete</Text>
             </TouchableOpacity>
-          // {/* </View> */}
         ) : (
-          // <View style={styles.bottomButtonContainer}>
             <TouchableOpacity 
               style={styles.whiteButtonColor} 
               onPress={() => handleComplete(true)}
@@ -101,19 +96,15 @@ const TaskDetailScreen = ({ navigation, route }) => {
             >
               <Text style={styles.greenStatusText}>Mark Task As Complete</Text>
             </TouchableOpacity>
-          // </View>
         )}
 
-        {/* <View style={styles.bottomButtonContainer}> */}
           <TouchableOpacity 
             style={styles.redButtonColor} 
             onPress={() => handleDelete()}
           >
             <Text style={styles.whiteButtonText}>Delete Task</Text>
           </TouchableOpacity>
-        {/* </View> */}
-      {/* </View> */}
-    </View>
+      </View>
   )
 }
 
@@ -126,7 +117,7 @@ const buttonColor = {
   shadowOpacity: 1.0,
   padding: 10,
   margin: 10,
-  width: '70%', // change to 60 or 65?
+  width: '70%',
   maxWidth: 800,
   height: 40,
   justifyContent: 'center',

@@ -18,7 +18,7 @@ import UserContext from './UserContext'
 
 const Stack = createStackNavigator()
 
-// Logout button!!
+// Logout button
 const LogoutButton = ({ navigation }) => (
   <View style={{marginRight: 10}}>
      <Button
@@ -27,7 +27,6 @@ const LogoutButton = ({ navigation }) => (
       onPress={() => {
         firebase.auth().signOut()
         navigation.navigate('AppViewScreen')
-        // alert('Successfully logged out!')
       }}
     />
   </View>
@@ -63,9 +62,9 @@ export default function App() {
     <UserContext.Provider value={user}>
     <NavigationContainer>
       <Stack.Navigator
-        screenOptions={({ navigation }) => ({
+        screenOptions={{
           headerStyle: {
-            backgroundColor: '#610f94', // some purple color lol
+            backgroundColor: '#610f94', // Some purple color
           },
           headerTintColor: 'white',
           headerTitleStyle: {
@@ -76,25 +75,8 @@ export default function App() {
             left: 0,
             right: 0,
           },
-          headerRight: ({}) => (
-            user
-            ?
-            <LogoutButton navigation={navigation} />
-            :
-            <Text />
-          ),
-        })}
+        }}
       >
-        {/* <Stack.Screen
-          name="ViewPatientsScreen"
-          component={ViewPatientsScreen}
-          options={{ title: 'Your Patients' }}
-        /> 
-        <Stack.Screen
-          name="MainTasksScreen"
-          component={MainTasksScreen}
-          options={{ title: 'Main Tasks' }}
-        /> */}
         <Stack.Screen
           name="AppViewScreen"
           component={AppViewScreen}
@@ -108,42 +90,114 @@ export default function App() {
         <Stack.Screen
           name="ViewPatientsScreen"
           component={ViewPatientsScreen}
-          options={{ title: 'Your Patients' }}
+          options={({ navigation }) => ({
+            title: 'Your Patients',
+            headerRight: () => (
+              user
+              ?
+              <LogoutButton navigation={navigation} />
+              :
+              <Text />
+            ),
+          })}
         /> 
         <Stack.Screen
           name="MainTasksScreen"
           component={MainTasksScreen}
-          options={{ title: 'Main Tasks' }}
+          options={({ navigation }) => ({
+            title: 'Main Tasks',
+            headerRight: () => (
+              user
+              ?
+              <LogoutButton navigation={navigation} />
+              :
+              <Text />
+            ),
+          })}
         />
         <Stack.Screen
           name="PrebuiltTaskScreen"
           component={PrebuiltTaskScreen}
-          options={{ title: 'Choose from Pre-Created Tasks' }}
+          options={({ navigation }) => ({
+            title: 'Choose from Pre-Created Tasks',
+            headerRight: () => (
+              user
+              ?
+              <LogoutButton navigation={navigation} />
+              :
+              <Text />
+            ),
+          })}
         />
         <Stack.Screen
           name="CreateTaskScreen"
           component={CreateTaskScreen}
-          options={{ title: 'Create New Task' }}
+          options={({ navigation }) => ({
+            title: 'Create New Task',
+            headerRight: () => (
+              user
+              ?
+              <LogoutButton navigation={navigation} />
+              :
+              <Text />
+            ),
+          })}
         />
         <Stack.Screen
           name="TaskDetailScreen"
           component={TaskDetailScreen}
-          options={{ title: 'Task Details' }}
+          options={({ navigation }) => ({
+            title: 'Task Details',
+            headerRight: () => (
+              user
+              ?
+              <LogoutButton navigation={navigation} />
+              :
+              <Text />
+            ),
+          })}
         />
         <Stack.Screen
           name="ViewMessagesScreen"
           component={ViewMessagesScreen}
-          options={{ title: 'View Messages' }}
+          options={({ navigation }) => ({
+            title: 'View Message',
+            headerRight: () => (
+              user
+              ?
+              <LogoutButton navigation={navigation} />
+              :
+              <Text />
+            ),
+          })}
         />
         <Stack.Screen
           name="EditTaskScreen"
           component={EditTaskScreen}
-          options={{ title: 'Edit Task' }}
+          options={({ navigation }) => ({
+            title: 'Edit Task',
+            headerRight: () => (
+              user
+              ?
+              <LogoutButton navigation={navigation} />
+              :
+              <Text />
+            ),
+          })}
         />
         <Stack.Screen
           name="CreateMessageScreen"
           component={CreateMessageScreen}
-          options={{ title: 'New message' }}
+          options={({ navigation }) => ({
+            title: 'New Message',
+            headerRight: () => (
+              user
+              ?
+              <LogoutButton navigation={navigation} />
+              :
+              <Text />
+            ),
+          })}
         />
       </Stack.Navigator>
     </NavigationContainer>
