@@ -63,16 +63,19 @@ const CreateTaskScreen = ({ navigation, route }) => {
             name="title"
             placeholder="Enter task name"
             autoCapitalize="none"
+            testID="CreateTask.Name"  // Assign ID to task name (for testing)
           />
           <Form.Field
             name="description"
             placeholder="Enter task description"
             autoCapitalize="none"
+            testID="CreateTask.Description"  // Assign ID to task descrip. (for testing)  
           />
           <Form.Field
             name="dateDue"
             placeholder="Enter due date for this task"
             autoCapitalize="none"
+            testID="CreateTask.DueDate"  // Assign ID to task due date (for testing)
           />
           <Form.Button title={'Add new task'} />
           <Form.ErrorMessage error={submitError} />
