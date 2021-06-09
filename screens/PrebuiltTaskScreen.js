@@ -19,6 +19,7 @@ const PrebuiltTaskScreen = ({ navigation, route }) => {
           })
         }}
         style={styles.newTaskButton}
+        testID="PrebuiltTask.CreateTask"
       >
         <Text style={styles.title}>Create Blank Task</Text>
       </TouchableOpacity>
