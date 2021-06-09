@@ -77,7 +77,10 @@ const CreateTaskScreen = ({ navigation, route }) => {
             autoCapitalize="none"
             testID="CreateTask.DueDate"  // Assign ID to task due date (for testing)
           />
-          <Form.Button title={'Add new task'} />
+          <Form.Button 
+            title={'Add new task'} 
+            testID="CreateTask.Button"  // Assign ID to task submit button (for testing)
+          />  
           <Form.ErrorMessage error={submitError} />
         </Form>
       </ScrollView>
