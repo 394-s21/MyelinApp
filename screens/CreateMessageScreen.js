@@ -14,6 +14,7 @@ const CreateMessageScreen = ({ navigation, route }) => {
   const [messageSent, setMessageSent] = useState(false)
 
   const user = route.params.user
+  console.log('params:', route.params)
   const userId = user.id
   const task = route.params.task
 
@@ -71,11 +72,11 @@ const CreateMessageScreen = ({ navigation, route }) => {
               autoFocus={true}
               multiline={true}
               numberOfLines={20}
-              testID="CreateMessage.Input"  // Assign ID to message (for testing)
+              testID="CreateMessage.Input" // Assign ID to message (for testing)
             />
-            <Form.Button 
-              title={'Send Message'} 
-              testID="CreateMessage.Button"  // Assign ID to submit button (for testing)
+            <Form.Button
+              title={'Send Message'}
+              testID="CreateMessage.Button" // Assign ID to submit button (for testing)
             />
           </Form>
         </ScrollView>

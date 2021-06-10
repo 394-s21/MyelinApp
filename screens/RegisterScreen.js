@@ -27,19 +27,20 @@ const RegisterScreen = ({ route, navigation }) => {
     setSignInError(null)
     try {
       await firebase.auth().signInWithEmailAndPassword(email, password)
-      route.params.roles.role === 'careTeam' 
-      ? 
-      navigation.navigate('ViewPatientsScreen') // Care team goes here
-      :
-      navigation.navigate('MainTasksScreen', {user: {id: 'Chris'}, role: 'patient'}) // Patients/caregiver goes here
-                                                                    // (Temporarily) always navigate to Chris's account
+      route.params.roles.role === 'careTeam'
+        ? navigation.navigate('ViewPatientsScreen') // Care team goes here
+        : navigation.navigate('MainTasksScreen', {
+            user: { id: 'Chris' },
+            role: 'patient',
+          }) // Patients/caregiver goes here
+      // (Temporarily) always navigate to Chris's account
     } catch (error) {
       setSignInError(error.message)
     }
   }
 
   async function handleOnSignUp(values) {
-    const { name, email, password} = values
+    const { name, email, password } = values
     setSignInError(null)
     try {
       const authCredential = await firebase
@@ -47,18 +48,18 @@ const RegisterScreen = ({ route, navigation }) => {
         .createUserWithEmailAndPassword(email, password)
       const user = authCredential.user
       await user.updateProfile({ displayName: name })
-      route.params.roles.role === 'careTeam' 
-      ? 
-      navigation.navigate('ViewPatientsScreen') // Care team goes here
-      :
-      navigation.navigate('MainTasksScreen', {user}) // Patients/caregiver goes here
+      route.params.roles.role === 'careTeam'
+        ? navigation.navigate('ViewPatientsScreen') // Care team goes here
+        : navigation.navigate('MainTasksScreen', { user }) // Patients/caregiver goes here
     } catch (error) {
       setSignInError(error.message)
     }
   }
 
   async function handleOnSubmit(values) {
-    return values.confirmPassword ? handleOnSignUp(values) : handleOnLogin(values)
+    return values.confirmPassword
+      ? handleOnSignUp(values)
+      : handleOnLogin(values)
   }
 
   return (

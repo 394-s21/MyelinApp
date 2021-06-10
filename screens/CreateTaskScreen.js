@@ -39,7 +39,7 @@ const CreateTaskScreen = ({ navigation, route }) => {
     const day = date.getDate()
     const year = date.getYear() - 100
 
-    const dateString = month + "/" + day + "/" + year
+    const dateString = month + '/' + day + '/' + year
     return dateString
   }
 
@@ -63,24 +63,24 @@ const CreateTaskScreen = ({ navigation, route }) => {
             name="title"
             placeholder="Enter task name"
             autoCapitalize="none"
-            testID="CreateTask.Name"  // Assign ID to task name (for testing)
+            testID="CreateTask.Name" // Assign ID to task name (for testing)
           />
           <Form.Field
             name="description"
             placeholder="Enter task description"
             autoCapitalize="none"
-            testID="CreateTask.Description"  // Assign ID to task descrip. (for testing)  
+            testID="CreateTask.Description" // Assign ID to task descrip. (for testing)
           />
           <Form.Field
             name="dateDue"
             placeholder="Enter due date for this task"
             autoCapitalize="none"
-            testID="CreateTask.DueDate"  // Assign ID to task due date (for testing)
+            testID="CreateTask.DueDate" // Assign ID to task due date (for testing)
           />
-          <Form.Button 
-            title={'Add new task'} 
-            testID="CreateTask.Button"  // Assign ID to task submit button (for testing)
-          />  
+          <Form.Button
+            title={'Add new task'}
+            testID="CreateTask.Button" // Assign ID to task submit button (for testing)
+          />
           <Form.ErrorMessage error={submitError} />
         </Form>
       </ScrollView>

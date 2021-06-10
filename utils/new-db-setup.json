@@ -1,313 +1,341 @@
 {
-  "users" : {
-    "Chris" : {
-      "id" : "Chris",
-      "patientInfo" : {
-        "careTeamMembers" : [ "Dr. John Doe", "Nurse Ted Smith", "Social Worker Colleen Jones", "Sister Sara Chen" ],
-        "dob" : "09/23/1958",
-        "homePhone" : "402-456-7890",
-        "insurance" : "Medicare",
-        "mobilePhone" : "(236) 561-6354",
-        "name" : "Chris Chen",
-        "nextVisit" : "05/25/2019",
-        "pcp" : "Dr John Doe",
-        "pharmacy" : "CVS",
-        "sex" : "female"
+  "users": {
+    "Chris": {
+      "id": "Chris",
+      "patientInfo": {
+        "careTeamMembers": [
+          "Dr. John Doe",
+          "Nurse Ted Smith",
+          "Social Worker Colleen Jones",
+          "Sister Sara Chen"
+        ],
+        "dob": "09/23/1958",
+        "homePhone": "402-456-7890",
+        "insurance": "Medicare",
+        "mobilePhone": "(236) 561-6354",
+        "name": "Chris Chen",
+        "nextVisit": "05/25/2019",
+        "pcp": "Dr John Doe",
+        "pharmacy": "CVS",
+        "sex": "female"
       },
-      "role" : "patient",
-      "tasks" : {
-        "1" : {
-          "comments" : {
-            "1622514341988" : "Can you email me the results of my prior visit? Thanks!",
-            "1622692810076" : "Sure, I just sent it over. Let me know if you have any questions.",
-            "1623110904314" : ""
+      "role": "patient",
+      "tasks": {
+        "1": {
+          "comments": {
+            "1622514341988": "Can you email me the results of my prior visit? Thanks!",
+            "1622692810076": "Sure, I just sent it over. Let me know if you have any questions.",
+            "1623110904314": ""
           },
-          "dateCreated" : "5/25/21",
-          "dateDue" : "06/15/21",
-          "dateModified" : "Thu Jun 03 2021 11:29:09 GMT-0500 (Central Daylight Time)",
-          "description" : "Part of a follow-up from a prior meeting.",
-          "id" : "1",
-          "notifications" : "",
-          "owner" : "Chris",
-          "status" : "Incomplete",
-          "title" : "Cardiology Evaluation"
+          "dateCreated": "5/25/21",
+          "dateDue": "06/15/21",
+          "dateModified": "Thu Jun 03 2021 11:29:09 GMT-0500 (Central Daylight Time)",
+          "description": "Part of a follow-up from a prior meeting.",
+          "id": "1",
+          "notifications": "",
+          "owner": "Chris",
+          "status": "Incomplete",
+          "title": "Cardiology Evaluation"
         },
-        "2" : {
-          "comments" : {
-            "1622515161733" : "Can you resend me the meeting address? Thanks.",
-            "1623111690617" : "This is a sample message for testing."
+        "2": {
+          "comments": {
+            "1622515161733": "Can you resend me the meeting address? Thanks.",
+            "1623111690617": "This is a sample message for testing."
           },
-          "dateCreated" : "05/24/2021",
-          "dateDue" : "05/30/21",
-          "dateModified" : "Wed Jun 02 2021 23:05:10 GMT-0500 (Central Daylight Time)",
-          "description" : "",
-          "id" : "2",
-          "notifications" : "",
-          "owner" : "Dr. Jane Doe",
-          "resources" : "https://www.alz.org",
-          "status" : "Incomplete",
-          "title" : "Attend Alzheimer’s Association Meeting"
+          "dateCreated": "05/24/2021",
+          "dateDue": "05/30/21",
+          "dateModified": "Wed Jun 02 2021 23:05:10 GMT-0500 (Central Daylight Time)",
+          "description": "",
+          "id": "2",
+          "notifications": "",
+          "owner": "Dr. Jane Doe",
+          "resources": "https://www.alz.org",
+          "status": "Incomplete",
+          "title": "Attend Alzheimer’s Association Meeting"
         },
-        "1622668559988" : {
-          "comments" : "",
-          "dateCreated" : "6/02/21",
-          "dateDue" : "6/10/21",
-          "dateModified" : "Wed Jun 02 2021 22:20:51 GMT-0500 (Central Daylight Time)",
-          "description" : "Please order or renew handicap vehicle permit.",
-          "id" : "1622668559988",
-          "notifications" : "",
-          "owner" : "Chris",
-          "resources" : "",
-          "status" : "Incomplete",
-          "title" : "Handicap Vehicle Permit"
+        "1622668559988": {
+          "comments": "",
+          "dateCreated": "6/02/21",
+          "dateDue": "6/10/21",
+          "dateModified": "Wed Jun 02 2021 22:20:51 GMT-0500 (Central Daylight Time)",
+          "description": "Please order or renew handicap vehicle permit.",
+          "id": "1622668559988",
+          "notifications": "",
+          "owner": "Chris",
+          "resources": "",
+          "status": "Incomplete",
+          "title": "Handicap Vehicle Permit"
         },
-        "1622737696238" : {
-          "comments" : {
-            "1622737717087" : "Hi Chris, we sent you and Susan some diet ideas via email. Lmk with any questions. ",
-            "1622737726919" : "Got the email - thank you!"
+        "1622737696238": {
+          "comments": {
+            "1622737717087": "Hi Chris, we sent you and Susan some diet ideas via email. Lmk with any questions. ",
+            "1622737726919": "Got the email - thank you!"
           },
-          "dateCreated" : "6/3/21",
-          "dateDue" : "6/20/21",
-          "dateModified" : "6/3/21",
-          "description" : "Please give me information on the most appropriate diet for me.",
-          "notifications" : "",
-          "owner" : "Chris",
-          "resources" : "",
-          "status" : "Incomplete",
-          "title" : "What is the best diet for me?"
+          "dateCreated": "6/3/21",
+          "dateDue": "6/20/21",
+          "dateModified": "6/3/21",
+          "description": "Please give me information on the most appropriate diet for me.",
+          "notifications": "",
+          "owner": "Chris",
+          "resources": "",
+          "status": "Incomplete",
+          "title": "What is the best diet for me?"
         },
-        "1622738563346" : {
-          "comments" : "",
-          "dateCreated" : "6/3/21",
-          "dateDue" : "7/01/21",
-          "dateModified" : "Thu Jun 03 2021 11:43:37 GMT-0500 (Central Daylight Time)",
-          "description" : "Demo.",
-          "id" : "1622738563346",
-          "notifications" : "",
-          "owner" : "Chris",
-          "resources" : "",
-          "status" : "Complete",
-          "title" : "What is the best diet for me?"
+        "1622738563346": {
+          "comments": "",
+          "dateCreated": "6/3/21",
+          "dateDue": "7/01/21",
+          "dateModified": "Thu Jun 03 2021 11:43:37 GMT-0500 (Central Daylight Time)",
+          "description": "Demo.",
+          "id": "1622738563346",
+          "notifications": "",
+          "owner": "Chris",
+          "resources": "",
+          "status": "Complete",
+          "title": "What is the best diet for me?"
         },
-        "1623109540536" : {
-          "comments" : "",
-          "dateCreated" : "6/7/21",
-          "dateDue" : "7/02/21",
-          "dateModified" : "6/7/21",
-          "description" : "Please schedule me an appointment with podiatry.",
-          "notifications" : "",
-          "owner" : "Chris",
-          "resources" : "",
-          "status" : "Incomplete",
-          "title" : "I need help trimming my toenails."
+        "1623109540536": {
+          "comments": "",
+          "dateCreated": "6/7/21",
+          "dateDue": "7/02/21",
+          "dateModified": "6/7/21",
+          "description": "Please schedule me an appointment with podiatry.",
+          "notifications": "",
+          "owner": "Chris",
+          "resources": "",
+          "status": "Incomplete",
+          "title": "I need help trimming my toenails."
         }
       }
     },
-    "ben" : {
-      "id" : "ben",
-      "patientInfo" : {
-        "careTeamMembers" : [ "Dr. John Doe", "Nurse Ted Smith", "Social Worker Colleen Jones", "Sister Sara Chen" ],
-        "dob" : "09/23/1958",
-        "homePhone" : "402-456-7890",
-        "insurance" : "Medicare",
-        "mobilePhone" : "(236) 561-6354",
-        "name" : "Ben Chen",
-        "nextVisit" : "05/25/2019",
-        "pcp" : "Dr John Doe",
-        "pharmacy" : "CVS",
-        "sex" : "male"
+    "ben": {
+      "id": "ben",
+      "patientInfo": {
+        "careTeamMembers": [
+          "Dr. John Doe",
+          "Nurse Ted Smith",
+          "Social Worker Colleen Jones",
+          "Sister Sara Chen"
+        ],
+        "dob": "09/23/1958",
+        "homePhone": "402-456-7890",
+        "insurance": "Medicare",
+        "mobilePhone": "(236) 561-6354",
+        "name": "Ben Chen",
+        "nextVisit": "05/25/2019",
+        "pcp": "Dr John Doe",
+        "pharmacy": "CVS",
+        "sex": "male"
       },
-      "role " : "patient",
-      "tasks" : {
-        "1" : {
-          "comments" : {
-            "1622515256396" : "sample"
+      "role ": "patient",
+      "tasks": {
+        "1": {
+          "comments": {
+            "1622515256396": "sample"
           },
-          "dateCreated" : "05/09/2021",
-          "dateDue" : "06/09/2021",
-          "description" : "",
-          "id" : "1",
-          "notifications" : "",
-          "owner" : "Nurse Ted Smith",
-          "resources" : "",
-          "status" : "Incomplete",
-          "title" : "Cardiology evaluation",
-          "urgency" : 1
+          "dateCreated": "05/09/2021",
+          "dateDue": "06/09/2021",
+          "description": "",
+          "id": "1",
+          "notifications": "",
+          "owner": "Nurse Ted Smith",
+          "resources": "",
+          "status": "Incomplete",
+          "title": "Cardiology evaluation",
+          "urgency": 1
         },
-        "1621924034160" : {
-          "dateCreated" : "Tue May 25 2021 01:27:14 GMT-0500 (Central Daylight Time)",
-          "dateDue" : "6/12/21",
-          "dateModified" : "Wed Jun 02 2021 22:25:51 GMT-0500 (Central Daylight Time)",
-          "description" : "Please order or renew handicap vehicle permit.",
-          "id" : "1621924034160",
-          "notifications" : "",
-          "owner" : "ben",
-          "resources" : "",
-          "status" : "Incomplete",
-          "title" : "Handicap Vehicle Permit"
+        "1621924034160": {
+          "dateCreated": "Tue May 25 2021 01:27:14 GMT-0500 (Central Daylight Time)",
+          "dateDue": "6/12/21",
+          "dateModified": "Wed Jun 02 2021 22:25:51 GMT-0500 (Central Daylight Time)",
+          "description": "Please order or renew handicap vehicle permit.",
+          "id": "1621924034160",
+          "notifications": "",
+          "owner": "ben",
+          "resources": "",
+          "status": "Incomplete",
+          "title": "Handicap Vehicle Permit"
         },
-        "1622692069059" : {
-          "comments" : "",
-          "dateCreated" : "6/2/21",
-          "dateDue" : "7/01/21",
-          "dateModified" : "6/2/21",
-          "description" : "Please order or renew handicap vehicle permit.",
-          "notifications" : "",
-          "owner" : "ben",
-          "resources" : "",
-          "status" : "Incomplete",
-          "title" : "I need a Handicap Vehicle Permit"
+        "1622692069059": {
+          "comments": "",
+          "dateCreated": "6/2/21",
+          "dateDue": "7/01/21",
+          "dateModified": "6/2/21",
+          "description": "Please order or renew handicap vehicle permit.",
+          "notifications": "",
+          "owner": "ben",
+          "resources": "",
+          "status": "Incomplete",
+          "title": "I need a Handicap Vehicle Permit"
         }
       }
     },
-    "lau" : {
-      "id" : "lau",
-      "patientInfo" : {
-        "careTeamMembers" : [ "Dr. John Doe", "Nurse Ted Smith", "Social Worker Colleen Jones", "Sister Sara Chen" ],
-        "dob" : "09/23/1958",
-        "homePhone" : "402-456-7890",
-        "insurance" : "Medicare",
-        "mobilePhone" : "(236) 561-6354",
-        "name" : "Lau Cheny",
-        "nextVisit" : "05/25/2019",
-        "pcp" : "Dr John Doe",
-        "pharmacy" : "CVS",
-        "sex" : "female"
+    "lau": {
+      "id": "lau",
+      "patientInfo": {
+        "careTeamMembers": [
+          "Dr. John Doe",
+          "Nurse Ted Smith",
+          "Social Worker Colleen Jones",
+          "Sister Sara Chen"
+        ],
+        "dob": "09/23/1958",
+        "homePhone": "402-456-7890",
+        "insurance": "Medicare",
+        "mobilePhone": "(236) 561-6354",
+        "name": "Lau Cheny",
+        "nextVisit": "05/25/2019",
+        "pcp": "Dr John Doe",
+        "pharmacy": "CVS",
+        "sex": "female"
       },
-      "role" : "patient",
-      "tasks" : {
-        "0" : {
-          "dateCreated" : "05/09/2021",
-          "dateDue" : "05/30/2021",
-          "dateModified" : "Tue May 25 2021 12:04:00 GMT-0500 (Central Daylight Time)",
-          "description" : "",
-          "id" : "0",
-          "notifications" : "",
-          "owner" : "Dr. John Doe",
-          "resources" : "",
-          "status" : "Incomplete",
-          "title" : "Follow up with Vascular surgery",
-          "urgency" : 1
+      "role": "patient",
+      "tasks": {
+        "0": {
+          "dateCreated": "05/09/2021",
+          "dateDue": "05/30/2021",
+          "dateModified": "Tue May 25 2021 12:04:00 GMT-0500 (Central Daylight Time)",
+          "description": "",
+          "id": "0",
+          "notifications": "",
+          "owner": "Dr. John Doe",
+          "resources": "",
+          "status": "Incomplete",
+          "title": "Follow up with Vascular surgery",
+          "urgency": 1
         },
-        "1" : {
-          "dateCreated" : "05/09/2021",
-          "dateDue" : "06/09/2021",
-          "description" : "",
-          "notifications" : "",
-          "owner" : "Nurse Ted Smith",
-          "resources" : "",
-          "status" : "Incomplete",
-          "title" : "Cardiology evaluation",
-          "urgency" : 0
+        "1": {
+          "dateCreated": "05/09/2021",
+          "dateDue": "06/09/2021",
+          "description": "",
+          "notifications": "",
+          "owner": "Nurse Ted Smith",
+          "resources": "",
+          "status": "Incomplete",
+          "title": "Cardiology evaluation",
+          "urgency": 0
         },
-        "1622218901062" : {
-          "dateCreated" : "Fri May 28 2021 11:21:41 GMT-0500 (Central Daylight Time)",
-          "dateDue" : "06/03/2021",
-          "dateModified" : "Fri May 28 2021 11:22:14 GMT-0500 (Central Daylight Time)",
-          "description" : "Please send me a list of over-the-counter medications that are safe for me to take.",
-          "id" : "1622218901062",
-          "notifications" : "",
-          "owner" : "lau",
-          "resources" : "",
-          "status" : "Incomplete",
-          "title" : "What can I take for my seasonal allergies?"
+        "1622218901062": {
+          "dateCreated": "Fri May 28 2021 11:21:41 GMT-0500 (Central Daylight Time)",
+          "dateDue": "06/03/2021",
+          "dateModified": "Fri May 28 2021 11:22:14 GMT-0500 (Central Daylight Time)",
+          "description": "Please send me a list of over-the-counter medications that are safe for me to take.",
+          "id": "1622218901062",
+          "notifications": "",
+          "owner": "lau",
+          "resources": "",
+          "status": "Incomplete",
+          "title": "What can I take for my seasonal allergies?"
         }
       }
     },
-    "laura" : {
-      "id" : "laura",
-      "patientInfo" : {
-        "careTeamMembers" : [ "Dr. John Doe", "Nurse Ted Smith", "Social Worker Colleen Jones", "Sister Sara Chen" ],
-        "dob" : "09/23/1958",
-        "homePhone" : "402-456-7890",
-        "insurance" : "Medicare",
-        "mobilePhone" : "(236) 561-6354",
-        "name" : "Laura Chen",
-        "nextVisit" : "05/25/2019",
-        "pcp" : "Dr John Doe",
-        "pharmacy" : "CVS",
-        "sex" : "female"
+    "laura": {
+      "id": "laura",
+      "patientInfo": {
+        "careTeamMembers": [
+          "Dr. John Doe",
+          "Nurse Ted Smith",
+          "Social Worker Colleen Jones",
+          "Sister Sara Chen"
+        ],
+        "dob": "09/23/1958",
+        "homePhone": "402-456-7890",
+        "insurance": "Medicare",
+        "mobilePhone": "(236) 561-6354",
+        "name": "Laura Chen",
+        "nextVisit": "05/25/2019",
+        "pcp": "Dr John Doe",
+        "pharmacy": "CVS",
+        "sex": "female"
       },
-      "role" : "careTeam",
-      "tasks" : {
-        "0" : {
-          "dateCreated" : "05/09/2021",
-          "dateDue" : "05/30/2021",
-          "description" : "",
-          "notifications" : "",
-          "owner" : "Dr. John Doe",
-          "resources" : "",
-          "status" : "Incomplete",
-          "title" : "Follow up with Vascular surgery",
-          "urgency" : 1
+      "role": "careTeam",
+      "tasks": {
+        "0": {
+          "dateCreated": "05/09/2021",
+          "dateDue": "05/30/2021",
+          "description": "",
+          "notifications": "",
+          "owner": "Dr. John Doe",
+          "resources": "",
+          "status": "Incomplete",
+          "title": "Follow up with Vascular surgery",
+          "urgency": 1
         },
-        "1" : {
-          "dateCreated" : "05/09/2021",
-          "dateDue" : "06/09/2021",
-          "dateModified" : "Wed Jun 02 2021 23:03:16 GMT-0500 (Central Daylight Time)",
-          "description" : "Desciption",
-          "id" : "1",
-          "notifications" : "",
-          "owner" : "Nurse Ted Smith",
-          "resources" : "",
-          "status" : "Complete",
-          "title" : "Cardiology evaluation",
-          "urgency" : 1
+        "1": {
+          "dateCreated": "05/09/2021",
+          "dateDue": "06/09/2021",
+          "dateModified": "Wed Jun 02 2021 23:03:16 GMT-0500 (Central Daylight Time)",
+          "description": "Desciption",
+          "id": "1",
+          "notifications": "",
+          "owner": "Nurse Ted Smith",
+          "resources": "",
+          "status": "Complete",
+          "title": "Cardiology evaluation",
+          "urgency": 1
         },
-        "undefined" : {
-          "comments" : "",
-          "dateCreated" : "05/09/2021",
-          "dateDue" : "05/30/2021",
-          "description" : "",
-          "notifications" : "",
-          "owner" : "Dr. John Doe",
-          "status" : "Complete",
-          "title" : "Follow up with Vascular surgery",
-          "urgency" : 1
+        "undefined": {
+          "comments": "",
+          "dateCreated": "05/09/2021",
+          "dateDue": "05/30/2021",
+          "description": "",
+          "notifications": "",
+          "owner": "Dr. John Doe",
+          "status": "Complete",
+          "title": "Follow up with Vascular surgery",
+          "urgency": 1
         }
       }
     },
-    "zad" : {
-      "id" : "zad",
-      "patientInfo" : {
-        "careTeamMembers" : [ "Dr. John Doe", "Nurse Ted Smith", "Social Worker Colleen Jones", "Sister Sara Chen" ],
-        "dob" : "09/23/1958",
-        "homePhone" : "402-456-7890",
-        "insurance" : "Medicare",
-        "mobilePhone" : "(236) 561-6354",
-        "name" : "Zaddeen Chen",
-        "nextVisit" : "05/25/2019",
-        "pcp" : "Dr John Doe",
-        "pharmacy" : "CVS",
-        "sex" : "female"
+    "zad": {
+      "id": "zad",
+      "patientInfo": {
+        "careTeamMembers": [
+          "Dr. John Doe",
+          "Nurse Ted Smith",
+          "Social Worker Colleen Jones",
+          "Sister Sara Chen"
+        ],
+        "dob": "09/23/1958",
+        "homePhone": "402-456-7890",
+        "insurance": "Medicare",
+        "mobilePhone": "(236) 561-6354",
+        "name": "Zaddeen Chen",
+        "nextVisit": "05/25/2019",
+        "pcp": "Dr John Doe",
+        "pharmacy": "CVS",
+        "sex": "female"
       },
-      "role" : "careTeam",
-      "tasks" : [ {
-        "dateCreated" : "05/09/2021",
-        "dateDue" : "05/30/2021",
-        "dateModified" : "Tue May 25 2021 17:47:31 GMT+1200 (New Zealand Standard Time)",
-        "description" : "What should we do?",
-        "id" : "0",
-        "notifications" : "",
-        "owner" : "Dr. John Doe",
-        "resources" : "",
-        "status" : "Incomplete",
-        "title" : "Follow up with Vascular surgery",
-        "urgency" : 0
-      }, {
-        "comments" : {
-          "1622692930189" : "Hello, another sample message."
+      "role": "careTeam",
+      "tasks": [
+        {
+          "dateCreated": "05/09/2021",
+          "dateDue": "05/30/2021",
+          "dateModified": "Tue May 25 2021 17:47:31 GMT+1200 (New Zealand Standard Time)",
+          "description": "What should we do?",
+          "id": "0",
+          "notifications": "",
+          "owner": "Dr. John Doe",
+          "resources": "",
+          "status": "Incomplete",
+          "title": "Follow up with Vascular surgery",
+          "urgency": 0
         },
-        "dateCreated" : "05/09/2021",
-        "dateDue" : "06/09/2021",
-        "description" : "",
-        "notifications" : "",
-        "owner" : "Nurse Ted Smith",
-        "resources" : "",
-        "status" : "Incomplete",
-        "title" : "Cardiology evaluation",
-        "urgency" : 0
-      } ]
+        {
+          "comments": {
+            "1622692930189": "Hello, another sample message."
+          },
+          "dateCreated": "05/09/2021",
+          "dateDue": "06/09/2021",
+          "description": "",
+          "notifications": "",
+          "owner": "Nurse Ted Smith",
+          "resources": "",
+          "status": "Incomplete",
+          "title": "Cardiology evaluation",
+          "urgency": 0
+        }
+      ]
     }
   }
 }

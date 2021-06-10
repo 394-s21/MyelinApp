@@ -4,11 +4,11 @@ import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 const PrebuiltTask = ({ prebuiltTask, view }) => (
   <View style={styles.buttonContainer}>
     <TouchableOpacity style={{ height: 60 }} onPress={() => view(prebuiltTask)}>
-      <View style={[styles.container, {textAlign: 'center'}]}>
+      <View style={[styles.container, { textAlign: 'center' }]}>
         <Text style={styles.title}>{prebuiltTask.title}</Text>
       </View>
     </TouchableOpacity>
-    </View>
+  </View>
 )
 
 const row = {

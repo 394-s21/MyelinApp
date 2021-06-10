@@ -7,7 +7,7 @@
     "web": "expo start --web",
     "test": "npx jest --coverage",
     "eject": "expo eject",
-    "format": "npx prettier --write ./App.js ./app.json ./components ./screens ./utils ./scripts"
+    "format": "npx prettier --write ./App.js ./app.json ./components ./screens ./utils ./scripts ./__tests__"
   },
   "dependencies": {
     "@react-native-community/masked-view": "0.1.10",

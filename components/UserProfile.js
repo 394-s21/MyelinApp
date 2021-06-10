@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 
 const UserProfile = ({ user, view }) => (
   <TouchableOpacity style={{ width: 350 }} onPress={() => view(user)}>
-    <View style={[styles.container, {textAlign: 'center'}]}>
+    <View style={[styles.container, { textAlign: 'center' }]}>
       <Text style={styles.title}>{user.patientInfo.name}</Text>
     </View>
   </TouchableOpacity>
@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
   title: {
     ...row,
     fontWeight: '500',
-    fontSize:24
+    fontSize: 24,
   },
   dateDue: {
     ...row,

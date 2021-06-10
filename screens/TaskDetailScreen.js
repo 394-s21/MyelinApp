@@ -1,5 +1,12 @@
 import React from 'react'
-import { Text, View, StyleSheet, Linking, Button, TouchableOpacity } from 'react-native'
+import {
+  Text,
+  View,
+  StyleSheet,
+  Linking,
+  Button,
+  TouchableOpacity,
+} from 'react-native'
 import { firebase } from '../firebase'
 
 const TaskDetailScreen = ({ navigation, route }) => {
@@ -56,24 +63,24 @@ const TaskDetailScreen = ({ navigation, route }) => {
         <Text
           style={
             task.status === 'Complete'
-              ? [styles.greenStatusText, {fontWeight: 'bold'}]
-              : [styles.redStatusText, {fontWeight: 'bold'}]
+              ? [styles.greenStatusText, { fontWeight: 'bold' }]
+              : [styles.redStatusText, { fontWeight: 'bold' }]
           }
         >
           {task.status}
         </Text>
       </View>
 
-      <TouchableOpacity 
-        style={styles.lightPurpleButtonColor} 
+      <TouchableOpacity
+        style={styles.lightPurpleButtonColor}
         onPress={() =>
           navigation.navigate('EditTaskScreen', { task, thisUser })
         }
       >
         <Text style={styles.blackButtonText}>Edit Task</Text>
       </TouchableOpacity>
-      <TouchableOpacity 
-        style={styles.lightPurpleButtonColor} 
+      <TouchableOpacity
+        style={styles.lightPurpleButtonColor}
         onPress={() =>
           navigation.navigate('ViewMessagesScreen', { task, thisUser })
         }
@@ -81,30 +88,30 @@ const TaskDetailScreen = ({ navigation, route }) => {
       >
         <Text style={styles.blackButtonText}>View Message Board</Text>
       </TouchableOpacity>
-        {task.status === 'Complete' ? (
-            <TouchableOpacity 
-              style={styles.whiteButtonColor} 
-              onPress={() => handleComplete(false)}
-            >
-              <Text style={styles.redStatusText}>Mark Task As Incomplete</Text>
-            </TouchableOpacity>
-        ) : (
-            <TouchableOpacity 
-              style={styles.whiteButtonColor} 
-              onPress={() => handleComplete(true)}
-              testID="TaskDetail.Complete"
-            >
-              <Text style={styles.greenStatusText}>Mark Task As Complete</Text>
-            </TouchableOpacity>
-        )}
+      {task.status === 'Complete' ? (
+        <TouchableOpacity
+          style={styles.whiteButtonColor}
+          onPress={() => handleComplete(false)}
+        >
+          <Text style={styles.redStatusText}>Mark Task As Incomplete</Text>
+        </TouchableOpacity>
+      ) : (
+        <TouchableOpacity
+          style={styles.whiteButtonColor}
+          onPress={() => handleComplete(true)}
+          testID="TaskDetail.Complete"
+        >
+          <Text style={styles.greenStatusText}>Mark Task As Complete</Text>
+        </TouchableOpacity>
+      )}
 
-          <TouchableOpacity 
-            style={styles.redButtonColor} 
-            onPress={() => handleDelete()}
-          >
-            <Text style={styles.whiteButtonText}>Delete Task</Text>
-          </TouchableOpacity>
-      </View>
+      <TouchableOpacity
+        style={styles.redButtonColor}
+        onPress={() => handleDelete()}
+      >
+        <Text style={styles.whiteButtonText}>Delete Task</Text>
+      </TouchableOpacity>
+    </View>
   )
 }
 
@@ -121,7 +128,7 @@ const buttonColor = {
   maxWidth: 800,
   height: 40,
   justifyContent: 'center',
-};
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -164,9 +171,9 @@ const styles = StyleSheet.create({
   tempContainer: {
     flex: 1,
     flexDirection: 'row',
-    width: '70%', 
+    width: '70%',
     maxWidth: 800,
-  }, 
+  },
   bottomButtonContainer: {
     flex: 1,
     flexDirection: 'row',

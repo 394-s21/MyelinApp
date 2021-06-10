@@ -10,7 +10,7 @@ import {
 // Original home screen
 // Currently not used
 const AppViewScreen = ({ navigation }) => {
-  const [roles, setRoles] = useState({});
+  const [roles, setRoles] = useState({})
 
   return (
     <View style={styles.container}>
@@ -24,10 +24,10 @@ const AppViewScreen = ({ navigation }) => {
         <TouchableOpacity
           style={styles.roleButton}
           onPress={() => {
-            const roles = {role: 'careTeam'};
-            navigation.navigate('RegisterScreen', {roles});
+            const roles = { role: 'careTeam' }
+            navigation.navigate('RegisterScreen', { roles })
           }}
-          testID='AppView.CareTeam'
+          testID="AppView.CareTeam"
         >
           <Text style={styles.buttonText}>Care Team Member</Text>
         </TouchableOpacity>
@@ -36,8 +36,8 @@ const AppViewScreen = ({ navigation }) => {
         <TouchableOpacity
           style={styles.roleButton}
           onPress={() => {
-            const roles = {role: 'patient'};
-            navigation.navigate('RegisterScreen', {roles});
+            const roles = { role: 'patient' }
+            navigation.navigate('RegisterScreen', { roles })
           }}
         >
           <Text style={styles.buttonText}>Patient/Caregiver</Text>

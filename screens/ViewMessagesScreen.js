@@ -61,13 +61,14 @@ const ViewMessagesScreen = ({ navigation, route }) => {
       <View>
         <RenderMessages messages={messages}></RenderMessages>
       </View>
-      <TouchableOpacity 
+      <TouchableOpacity
         style={styles.lightPurpleButtonColor}
         onPress={() =>
           navigation.navigate('CreateMessageScreen', {
             user: thisUser,
             task: task,
-          })}
+          })
+        }
       >
         <Text style={styles.blackButtonText}>New Message</Text>
       </TouchableOpacity>

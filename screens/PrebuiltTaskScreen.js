@@ -15,7 +15,7 @@ const PrebuiltTaskScreen = ({ navigation, route }) => {
       <TouchableOpacity
         onPress={() => {
           return navigation.navigate('CreateTaskScreen', {
-            thisUser,
+            thisUser: thisUser,
           })
         }}
         style={styles.newTaskButton}
@@ -23,12 +23,12 @@ const PrebuiltTaskScreen = ({ navigation, route }) => {
       >
         <Text style={styles.title}>Create Blank Task</Text>
       </TouchableOpacity>
-    <View style={styles.container2}>
-      {PrebuiltTaskArray.tasks.map((prebuiltTask, idx) => (
-        <PrebuiltTask key={idx} prebuiltTask={prebuiltTask} view={view} />
-      ))}
+      <View style={styles.container2}>
+        {PrebuiltTaskArray.tasks.map((prebuiltTask, idx) => (
+          <PrebuiltTask key={idx} prebuiltTask={prebuiltTask} view={view} />
+        ))}
+      </View>
     </View>
-  </View>
   )
 }
 
