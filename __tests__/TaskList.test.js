@@ -9,7 +9,7 @@ const tasks = thisUser.tasks
 describe('<TaskList />', () => {
   // [TEST TYPE]: rendering test
   // Check rendering of task list component
-  it('', async () => {
+  it('Renders correctly', async () => {
     const { screenTest, getAllByText, getByTestId } = render(
       <TaskList tasks={tasks} view={jest.fn()} />
     )
